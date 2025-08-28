@@ -8,12 +8,12 @@ import lombok.Getter;
 
 @Entity
 @Getter
-@Table(name = "estado")
-public class Estado {
+@Table(name = "departamentos")
+public class Departamentos {
     @Id
-    @Column(name = "estado_id")
-    private Integer estado_id;
+    @Column(name = "departamento_id")
+    private Integer departamento_id;
 
     @Column(nullable = false, length = 50)
-    private String nomb_estado;
+    private String nomb_departamento;
 }
