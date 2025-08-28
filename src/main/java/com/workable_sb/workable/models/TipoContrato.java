@@ -2,18 +2,17 @@ package com.workable_sb.workable.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.Getter;
 
 @Entity
-@Table (name = "tipocontrato")
+@Table (name = "tipo_contrato")
+@Getter
 public class TipoContrato {
-    @Id
-    @Column(name = "")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer tipo;
+  @Id
+  private Short tipo_contrato_id;
 
-    @Column(nullable = false)
+  @Column(length = 50)
+  private String nombre;
 }
