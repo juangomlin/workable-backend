@@ -1,5 +1,7 @@
 package com.workable_sb.workable.models;
 
+import java.util.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,13 +17,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "Niveleducativo")
-public class NivelEducativo {
-    @Id
-    @Column(name = "Nivel_edu_id")
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private Integer niv_edu_id;
+@Table(name = "Postulacion")
+public class Postulacion {
+  @Id
+  @Column(name = "Postulacion_id")
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Integer id;
 
-    @Column(nullable = false, length = 255)
-    private String niveledunom;
+  private Date fechaPost;
 }
