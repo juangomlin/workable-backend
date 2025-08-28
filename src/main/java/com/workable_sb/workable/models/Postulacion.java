@@ -1,5 +1,6 @@
 package com.workable_sb.workable.models;
 
+import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,15 +10,16 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Getter;
 
+
+
 @Entity
 @Getter
-@Table(name = "Modalidad")
-public class Modalidad {
+@Table(name = "Postulacion")
+public class Postulacion {
   @Id
-  @Column(name = "modal_id")
+  @Column(name = "Postulacion_id")
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
 
-  @Column(nullable = false, length = 255)
-  private String nombreModal;
+  private Date fechaPost;
 }
