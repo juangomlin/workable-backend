@@ -9,7 +9,7 @@ import lombok.Getter;
 @Entity
 @Getter
 @Table(name = "departamentos")
-public class Departamentos {
+public class Departamento {
     @Id
     @Column(name = "departamento_id")
     private Integer departamento_id;
