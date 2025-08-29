@@ -29,7 +29,7 @@ public class Municipio {
   private String NombreMuni;
 
   @ManyToOne(optional = false)
-  @JoinColumn(name = "departamento_id", nullable = false,
+  @JoinColumn(name = "departamento_municipio", nullable = false,
   foreignKey = @jakarta.persistence.ForeignKey(name = "FK_municipio_departamento"))
   private Departamento departamento;
 
