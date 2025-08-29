@@ -8,7 +8,7 @@ import lombok.Getter;
 
 @Entity
 @Getter
-@Table(name = "departamentos")
+@Table(name = "departamento")
 public class Departamento {
     @Id
     @Column(name = "departamento_id")
