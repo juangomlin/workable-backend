@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -37,5 +39,20 @@ public class Oferta {
 
   private Date fechPu;
   private Date fechLimApli;
+
+  @ManyToOne(optional = false)
+  @JoinColumn(name = "modalidad_oferta", nullable = false,
+  foreignKey = @jakarta.persistence.ForeignKey(name = "FK_modalidad_oferta"))
+  private Modalidad modalidad;
+
+  @ManyToOne(optional = false)
+  @JoinColumn(name = "tipoCont_oferta", nullable = false, 
+  foreignKey = @jakarta.persistence.ForeignKey(name = "FK_tipoCont_oferta"))
+  private TipoContrato tipoContrato;
+
+  @ManyToOne(optional = false)
+  @JoinColumn(name = "empresa_oferta", nullable = false,
+  foreignKey = @jakarta.persistence.ForeignKey(name = "FK_empresa_oferta"))
+  private Empresa empresa;
 
 }
