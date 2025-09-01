@@ -35,11 +35,19 @@ public class Usuario {
   @Column(nullable = false, length = 255)
   private String correo;
 
-  @ManyToOne(optional = false, fetch = FetchType.LAZY)
-  @JoinColumn(name = "FK_tipo_documento_usuario", nullable = false)
+  @ManyToOne(optional = false)
+  @JoinColumn(name = "municipio_usuario", nullable = false, foreignKey = @jakarta.persistence.ForeignKey(name = "FK_municipio_usuario"))
+  private Municipio municipio;
+
+  @ManyToOne(optional = false)
+  @JoinColumn(name = "empresa_usuario", nullable = false, foreignKey = @jakarta.persistence.ForeignKey(name = "FK_empresa_usuario"))
+  private Empresa empresa;
+
+  @ManyToOne(optional = false)
+  @JoinColumn(name = "tipo_documento_usuario", nullable = false, foreignKey = @jakarta.persistence.ForeignKey(name = "FK_tipo_documento_usuario"))
   private TipDocumento tipDocumento;
 
   @ManyToOne(optional = false, fetch = FetchType.LAZY)
-  @JoinColumn(name = "FK_rol_usuario", nullable = false)
+  @JoinColumn(name = "rol_usuario", nullable = false, foreignKey = @jakarta.persistence.ForeignKey(name = "FK_rol_usuario"))
   private Rol rol;
 }
