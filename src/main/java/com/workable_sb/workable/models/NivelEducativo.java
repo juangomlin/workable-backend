@@ -6,15 +6,22 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 @Entity
-@Table(name = "niveleducativo")
+@Table(name = "Niveleducativo")
 public class NivelEducativo {
     @Id
-    @Column(name = "niveleducativo")
+    @Column(name = "Nivel_edu_id")
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private Integer n_edu_id;
+    private Integer niv_edu_id;
 
     @Column(nullable = false, length = 255)
-    private String nvedunom;
+    private String niveledunom;
 }

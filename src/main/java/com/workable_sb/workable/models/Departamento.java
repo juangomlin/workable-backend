@@ -1,5 +1,19 @@
 package com.workable_sb.workable.models;
 
-public class Departamento {
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Getter;
 
+@Entity
+@Getter
+@Table(name = "departamento")
+public class Departamento {
+    @Id
+    @Column(name = "departamento_id")
+    private Integer departamento_id;
+
+    @Column(nullable = false, length = 50)
+    private String nomb_departamento;
 }
