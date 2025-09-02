@@ -2,7 +2,6 @@ package com.workable_sb.workable.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -32,7 +31,7 @@ public class Usuario {
   @Column(nullable = false, length = 500)
   private String clave;
 
-  @Column(nullable = false, length = 255)
+  @Column(nullable = false, length = 255 , unique = true)
   private String correo;
 
   @ManyToOne(optional = false)
@@ -47,7 +46,7 @@ public class Usuario {
   @JoinColumn(name = "tipo_documento_usuario", nullable = false, foreignKey = @jakarta.persistence.ForeignKey(name = "FK_tipo_documento_usuario"))
   private TipDocumento tipDocumento;
 
-  @ManyToOne(optional = false, fetch = FetchType.LAZY)
+  @ManyToOne(optional = false)
   @JoinColumn(name = "rol_usuario", nullable = false, foreignKey = @jakarta.persistence.ForeignKey(name = "FK_rol_usuario"))
   private Rol rol;
 }
