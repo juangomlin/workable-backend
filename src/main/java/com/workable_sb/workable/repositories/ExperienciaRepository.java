@@ -1,5 +1,9 @@
 package com.workable_sb.workable.repositories;
 
-public interface ExperienciaRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.workable_sb.workable.models.SeccionExperiencia;
+
+public interface ExperienciaRepository extends JpaRepository<SeccionExperiencia, Integer> {
 
 }
