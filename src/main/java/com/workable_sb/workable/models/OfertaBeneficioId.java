@@ -9,13 +9,13 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Embeddable
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(of = {"usuario_id", "discapacidad_id"})
-public class UsuarioDiscapacidadId implements Serializable{
+@Data
+@EqualsAndHashCode(of = {"oferta_id", "beneficio_id"})
+public class OfertaBeneficioId implements Serializable{
+  public OfertaBeneficioId(Integer id, Integer id2){} 
+    private Integer oferta_id;
+    private Short beneficio_id;
 
-  public UsuarioDiscapacidadId(Integer id, Integer id2) {}
-  private Integer usuario_id;
-  private Short discapacidad_id;
 }

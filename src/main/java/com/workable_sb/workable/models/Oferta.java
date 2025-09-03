@@ -26,7 +26,7 @@ public class Oferta {
   @Id
   @Column(name = "Oferta_id")
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Integer id;
+  private Short id;
   
   @Column(nullable = false, length = 255)
   private String nomOfert;
