@@ -1,5 +1,9 @@
 package com.workable_sb.workable.repositories;
 
-public interface MunicipioRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.workable_sb.workable.models.Municipio;
+
+public interface MunicipioRepository extends JpaRepository<Municipio, Integer> {
 
 }

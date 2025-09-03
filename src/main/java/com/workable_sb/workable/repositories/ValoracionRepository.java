@@ -1,5 +1,9 @@
 package com.workable_sb.workable.repositories;
 
-public interface ValoracionRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.workable_sb.workable.models.Valoracion;
+
+public interface ValoracionRepository extends JpaRepository <Valoracion, Integer>  {
 
 }

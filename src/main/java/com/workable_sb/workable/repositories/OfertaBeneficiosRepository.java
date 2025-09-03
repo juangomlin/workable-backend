@@ -1,5 +1,9 @@
 package com.workable_sb.workable.repositories;
 
-public interface OfertaBeneficiosRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.workable_sb.workable.models.OfertaBeneficio;
+
+public interface OfertaBeneficiosRepository extends JpaRepository<OfertaBeneficio, Integer> {
 
 }
