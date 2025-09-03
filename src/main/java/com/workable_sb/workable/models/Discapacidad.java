@@ -15,5 +15,5 @@ public class Discapacidad {
     private Short discapacidad_id;
 
     @Column(nullable = false, unique = true)
-    private String NombDiscap;
+    private String nombre;
 }
