@@ -11,9 +11,8 @@ import lombok.Getter;
 @Table(name = "departamento")
 public class Departamento {
     @Id
-    @Column(name = "departamento_id")
     private Integer departamento_id;
 
     @Column(nullable = false, length = 50)
-    private String nomb_departamento;
+    private String nombre;
 }

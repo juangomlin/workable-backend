@@ -30,12 +30,12 @@ public class OfertaBeneficio {
 
   @ManyToOne
   @MapsId("oferta_id")
-  @JoinColumn(name = "oferta_id", nullable = false, foreignKey = @jakarta.persistence.ForeignKey(name = "FK_ofertaBeneficio_oferta"))
+  @JoinColumn(name = "ofertaid", nullable = false, foreignKey = @jakarta.persistence.ForeignKey(name = "FK_ofertaBeneficio_oferta"))
   private Oferta oferta;
 
   @ManyToOne
   @MapsId("beneficio_id")
-  @JoinColumn(name = "beneficio_id", nullable = false, foreignKey = @jakarta.persistence.ForeignKey(name = "FK_ofertaBeneficio_beneficio"))
+  @JoinColumn(name = "beneficioid", nullable = false, foreignKey = @jakarta.persistence.ForeignKey(name = "FK_ofertaBeneficio_beneficio"))
   private Beneficio beneficio;
 
 }

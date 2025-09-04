@@ -11,7 +11,7 @@ import lombok.Getter;
 @Getter
 public class Rol {
   @Id
-  private Short rol_id;
+  private Integer rol_id;
   
   @Column(nullable = false, length = 10)
   private String nombre;

@@ -14,6 +14,6 @@ public class Genero {
     @Id
     private Boolean genero_id;
 
-    @Column(nullable = false, length = 100)
-    private String TipGenero;
+    @Column(nullable = false, length = 50)
+    private String tipoGenero;
 }

@@ -11,7 +11,6 @@ import lombok.Getter;
 @Table(name = "discapacidad")
 public class Discapacidad {
     @Id
-    @Column(name = "discapacidad_id")
     private Short discapacidad_id;
 
     @Column(nullable = false, unique = true)
