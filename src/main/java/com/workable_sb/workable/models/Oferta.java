@@ -21,37 +21,35 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @Table(name = "Oferta")
-
 public class Oferta {
   @Id
-  @Column(name = "Oferta_id")
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Integer id;
+  private Integer oferta_id;
   
   @Column(nullable = false, length = 255)
-  private String nomOfert;
+  private String titulo;
 
   @Column(nullable = false, length = 255)
-  private String descrip;
+  private String descripcion;
 
   @Column(nullable = false, length = 100)
-  private String ubicTrab;
+  private String ubicacion;
 
-  private Date fechPu;
-  private Date fechLimApli;
+  private Date fechaPublicacion;
+  private Date fechaLimite;
 
   @ManyToOne(optional = false)
-  @JoinColumn(name = "modalidad_oferta", nullable = false,
+  @JoinColumn(name = "modalidad_id", nullable = false,
   foreignKey = @jakarta.persistence.ForeignKey(name = "FK_modalidad_oferta"))
   private Modalidad modalidad;
 
   @ManyToOne(optional = false)
-  @JoinColumn(name = "tipoCont_oferta", nullable = false, 
+  @JoinColumn(name = "tipoContrato_id", nullable = false,
   foreignKey = @jakarta.persistence.ForeignKey(name = "FK_tipoCont_oferta"))
   private TipoContrato tipoContrato;
 
   @ManyToOne(optional = false)
-  @JoinColumn(name = "empresa_oferta", nullable = false,
+  @JoinColumn(name = "empresa_id", nullable = false,
   foreignKey = @jakarta.persistence.ForeignKey(name = "FK_empresa_oferta"))
   private Empresa empresa;
 

@@ -2,7 +2,6 @@ package com.workable_sb.workable.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -12,6 +11,7 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import jakarta.persistence.ForeignKey;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,6 +19,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Table(name = "usuario")
 public class Usuario {
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer usuario_id;
@@ -32,22 +33,22 @@ public class Usuario {
   @Column(nullable = false, length = 500)
   private String clave;
 
-  @Column(nullable = false, length = 255)
+  @Column(nullable = false, length = 255 , unique = true)
   private String correo;
 
   @ManyToOne(optional = false)
-  @JoinColumn(name = "municipio_usuario", nullable = false, foreignKey = @jakarta.persistence.ForeignKey(name = "FK_municipio_usuario"))
+  @JoinColumn(name = "municipio_id", nullable = false, foreignKey = @ForeignKey(name = "FK_municipio_usuario"))
   private Municipio municipio;
 
   @ManyToOne(optional = false)
-  @JoinColumn(name = "empresa_usuario", nullable = false, foreignKey = @jakarta.persistence.ForeignKey(name = "FK_empresa_usuario"))
+  @JoinColumn(name = "empresa_id", nullable = false, foreignKey = @ForeignKey(name = "FK_empresa_usuario"))
   private Empresa empresa;
 
   @ManyToOne(optional = false)
-  @JoinColumn(name = "tipo_documento_usuario", nullable = false, foreignKey = @jakarta.persistence.ForeignKey(name = "FK_tipo_documento_usuario"))
+  @JoinColumn(name = "tipoDocumento_id", nullable = false, foreignKey = @ForeignKey(name = "FK_tipo_documento_usuario"))
   private TipDocumento tipDocumento;
 
-  @ManyToOne(optional = false, fetch = FetchType.LAZY)
-  @JoinColumn(name = "rol_usuario", nullable = false, foreignKey = @jakarta.persistence.ForeignKey(name = "FK_rol_usuario"))
+  @ManyToOne(optional = false)
+  @JoinColumn(name = "rol_id", nullable = false, foreignKey = @ForeignKey(name = "FK_rol_usuario"))
   private Rol rol;
 }

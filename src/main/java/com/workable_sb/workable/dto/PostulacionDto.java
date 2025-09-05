@@ -1,5 +1,5 @@
 package com.workable_sb.workable.dto;
 
-public class ExperienciaDto {
+public class PostulacionDto {
 
 }
