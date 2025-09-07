@@ -42,7 +42,7 @@ public class DatoEstudio {
     private byte[] certificado;
 
     @ManyToOne(optional = false)
-    @JoinColumn (name = "nivelEducativo_id", nullable = false, foreignKey = @jakarta.persistence.ForeignKey(name = "FK_datosEstudios_nivelEducativo"))
+    @JoinColumn (name = "nivelEducativo_id", nullable = false, foreignKey = @ForeignKey(name = "FK_datosEstudios_nivelEducativo"))
     private NivelEducativo nivelEducativo;
 
     @ManyToOne(optional = false)
