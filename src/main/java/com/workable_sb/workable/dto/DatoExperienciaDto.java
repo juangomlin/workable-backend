@@ -1,5 +1,31 @@
 package com.workable_sb.workable.dto;
 
-public class DatoExperienciaDto {
+import java.sql.Date;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class DatoExperienciaDto {
+  private Integer exp_id;
+
+  @NotNull
+  private String carg;
+
+  @NotNull
+  private String empr;
+
+  @NotNull
+  private Date fechaIn;
+  
+  private Date fechaFi;
+
+  @NotNull
+  private String ubicacion;
+
+  @NotNull(message = "el ID de usuario es obligatorio")
+  private Integer usr_id;
 }
