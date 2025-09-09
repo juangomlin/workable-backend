@@ -1,5 +1,53 @@
 package com.workable_sb.workable.mapper;
 
-public class EmpresaMapperImple {
+import org.springframework.stereotype.Component;
 
+import com.workable_sb.workable.dto.EmpresaDto;
+import com.workable_sb.workable.models.Categoria;
+import com.workable_sb.workable.models.Empresa;
+import com.workable_sb.workable.models.Municipio;
+import com.workable_sb.workable.repositories.CategoriaRepository;
+import com.workable_sb.workable.repositories.MunicipioRepository;
+
+import jakarta.persistence.EntityNotFoundException;
+
+@Component
+public class EmpresaMapperImple implements EmpresaMapper{
+  private final MunicipioRepository municipioRepository;
+  private final CategoriaRepository categoriaRepository;
+
+  public EmpresaMapperImple(MunicipioRepository municipioRepository, CategoriaRepository categoriaRepository) {
+    this.municipioRepository = municipioRepository;
+    this.categoriaRepository = categoriaRepository;
+  }
+
+  @Override
+  public Empresa consultEntity(EmpresaDto empresaDto) {
+    Empresa empresa = new Empresa();
+
+    empresa.setEmpresa_id(empresaDto.getEmpr_id());
+    empresa.setNombre(empresaDto.getNom());
+    empresa.setUbicacion(empresaDto.getUbi());
+    empresa.setDescripcion(empresaDto.getDesc());
+    
+    Municipio municipio = municipioRepository.findById(empresaDto.getMunicipioDto().getMun_id()).orElseThrow(() -> new EntityNotFoundException("Municipio no encontrado"));
+    empresa.setMunicipio(municipio);
+
+    Categoria categoria = categoriaRepository.findById(empresaDto.getCate_id()).orElseThrow(() -> new EntityNotFoundException("Categoria no encontrada"));
+    empresa.setCategoria(categoria);
+
+    return empresa;
+  }
+
+  @Override
+  public Empresa consultDto(Empresa empresa) {
+    return new EmpresaDto(
+      empresa.getEmpresa_id(),
+      empresa.getNombre(),
+      empresa.getUbicacion(),
+      empresa.getDescripcion(),
+      empresa.getCategoria().getCategoria_id(),
+      empresa.getCategoria().getNombre(),
+      empresa.getMunicipio());
+  }
 }
