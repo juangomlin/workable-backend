@@ -23,4 +23,7 @@ public class EmpresaDto {
   @NotNull(message = "el ID de categoria es obligatorio")
   private Integer cate_id;
   private String nom_cat;
+
+  @NotNull(message = "los datos del municipio son obligatorios")
+  private MunicipioDto municipioDto;
 }
