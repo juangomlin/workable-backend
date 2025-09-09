@@ -8,7 +8,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.ForeignKey;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.Lob;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -33,9 +32,8 @@ public class InfoPersonal {
   @Column(nullable = false)
   private Date fechaNacimiento;
 
-  @Lob
-  @Column(columnDefinition = "LONGBLOB")
-  private byte[] fotoPerfil;
+  @Column(nullable = false)
+  private String fotoPerfil;
 
   @OneToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "genero_id", referencedColumnName = "genero_id", foreignKey = @ForeignKey(name = "FK_infoPersonal_Genero"))
