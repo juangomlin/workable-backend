@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class GeneroDto {
-    private Integer genero_id;
+    private Long genero_id;
 
     @NotNull
     private String tipo;

@@ -35,13 +35,27 @@ public class InfoPersonalMapperImple implements InfoPersonalMapper {
         infoPersonal.setFechaNacimiento(infoPersonalDto.getFechnac());
         infoPersonal.setFotoPerfil(infoPersonalDto.getFotperfil());
 
-        Genero genero = generoRepository.findById(GeneroDto.get())
+        Genero genero = generoRepository.findById(infoPersonalDto.getGenero_id()).orElseThrow(() -> new RuntimeException("Genero no encontrado"));
+        infoPersonal.setGenero(genero);
+
+        
+        Usuario usuario = usuarioRepository.findById(infoPersonalDto.getUsuario_id()).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+        infoPersonal.setUsuario(usuario);
+
+        return infoPersonal;
 
     }
 
-
-
-
-
+    @Override
+    public InfoPersonalDto consultDto(InfoPersonal entity) {
+        return new InfoPersonalDto(
+            entity.getInfoPersonal_id(),
+            entity.getUbicacion(),
+            entity.getTelefono(),
+            entity.getFechaNacimiento(),
+            entity.getFotoPerfil(),
+            entity.getGenero().getGenero_id(),
+            entity.getUsuario().getUsuario_id());
+    }
 
 }
