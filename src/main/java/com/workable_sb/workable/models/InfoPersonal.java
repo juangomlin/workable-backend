@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "info_personal")
 public class InfoPersonal {
   @Id
-  private Short infoPersonal_id;
+  private Integer infoPersonal_id;
 
   @Column(nullable = false, length = 100)
   private String ubicacion;

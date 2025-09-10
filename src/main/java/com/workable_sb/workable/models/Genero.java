@@ -12,8 +12,8 @@ import lombok.Getter;
 @Table (name = "genero")
 public class Genero {
     @Id
-    private Long genero_id;
+    private Integer genero_id;
 
     @Column(nullable = false, length = 50)
-    private String tipoGenero;
+    private String nombre;
 }

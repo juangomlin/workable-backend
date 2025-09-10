@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class InfoPersonalDto {
-    private Short infPerson_id;
+    private Integer infPerson_id;
 
     @NotNull
     private String ubic;
@@ -25,8 +25,13 @@ public class InfoPersonalDto {
     private String fotperfil;
 
     @NotNull(message = "El id del genero es obligatorio")
-    private Boolean genero_id;
+    private Integer genero_id;
+
+    private String nombregenr;
 
     @NotNull(message = "El id de usuario es obligatorio")
     private Integer usuario_id;
+
+    private String nombreusuario;
+
 }

@@ -2,9 +2,8 @@ package com.workable_sb.workable.mapper;
 
 import org.springframework.stereotype.Component;
 
-import com.workable_sb.workable.dto.GeneroDto;
+
 import com.workable_sb.workable.dto.InfoPersonalDto;
-import com.workable_sb.workable.dto.UsuarioDto;
 import com.workable_sb.workable.models.Genero;
 import com.workable_sb.workable.models.InfoPersonal;
 import com.workable_sb.workable.models.Usuario;
@@ -47,15 +46,17 @@ public class InfoPersonalMapperImple implements InfoPersonalMapper {
     }
 
     @Override
-    public InfoPersonalDto consultDto(InfoPersonal entity) {
+    public InfoPersonalDto consultDto(InfoPersonal infoPersonalDto) {
         return new InfoPersonalDto(
-            entity.getInfoPersonal_id(),
-            entity.getUbicacion(),
-            entity.getTelefono(),
-            entity.getFechaNacimiento(),
-            entity.getFotoPerfil(),
-            entity.getGenero().getGenero_id(),
-            entity.getUsuario().getUsuario_id());
-    }
+            infoPersonalDto.getInfoPersonal_id(),
+            infoPersonalDto.getUbicacion(),
+            infoPersonalDto.getTelefono(),
+            infoPersonalDto.getFechaNacimiento(),
+            infoPersonalDto.getFotoPerfil(),
+            infoPersonalDto.getGenero().getGenero_id(),
+            infoPersonalDto.getGenero().getNombre(),
+            infoPersonalDto.getUsuario().getUsuario_id(),
+            infoPersonalDto.getUsuario().getNombre()); 
+  }
 
 }
