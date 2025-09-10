@@ -1,5 +1,5 @@
 package com.workable_sb.workable.controller;
 
-public class TipDocumentoController {
+public class PostulacionController {
 
 }

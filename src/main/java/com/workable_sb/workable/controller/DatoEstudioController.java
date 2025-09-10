@@ -1,5 +1,5 @@
 package com.workable_sb.workable.controller;
 
-public class ModalidadController {
+public class DatoEstudioController {
 
 }

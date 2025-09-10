@@ -15,5 +15,7 @@ public class MunicipioDto {
   private String nom;
 
   @NotNull(message = "el departamento es obligatorio")
-  private DepartamentoDto departamentoDto;
+  private Integer depar_id;
+
+  private String nom_depar;
 }
