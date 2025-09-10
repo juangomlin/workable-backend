@@ -11,7 +11,7 @@ import lombok.Getter;
 @Getter
 public class TipoContrato {
   @Id
-  private Short tipo_contrato_id;
+  private Integer tipo_contrato_id;
 
   @Column(length = 50)
   private String nombre;
