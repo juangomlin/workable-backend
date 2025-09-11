@@ -1,5 +1,5 @@
 package com.workable_sb.workable.controller;
 
-public class InstitucionController {
+public class DatoExperienciaController {
 
 }

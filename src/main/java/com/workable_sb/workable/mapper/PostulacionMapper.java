@@ -1,5 +1,5 @@
 package com.workable_sb.workable.mapper;
 
-public interface ExperienciaMapper {
+public interface PostulacionMapper {
 
 }
