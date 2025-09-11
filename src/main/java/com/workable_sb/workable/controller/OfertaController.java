@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.workable_sb.workable.dto.OfertaDto;
-import com.workable_sb.workable.dto.UsuarioDto;
 import com.workable_sb.workable.service.OfertaService;
 
 import jakarta.validation.Valid;
