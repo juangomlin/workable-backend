@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.workable_sb.workable.models.Estado;
 
-public interface EstadoRepository extends JpaRepository<Estado, Integer> {
+public interface EstadoRepository extends JpaRepository<Estado, Short> {
 
 }
