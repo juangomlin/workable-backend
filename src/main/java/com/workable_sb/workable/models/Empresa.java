@@ -35,4 +35,8 @@ public class Empresa {
     @ManyToOne(optional  = false)
     @JoinColumn (name = "categoria_id", nullable = false, foreignKey = @ForeignKey(name = "FK_empresa_categoria"))
     private Categoria categoria;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "municipio_id", nullable = false, foreignKey = @ForeignKey(name = "FK_empresa_municipio"))
+    private Municipio municipio;
 }

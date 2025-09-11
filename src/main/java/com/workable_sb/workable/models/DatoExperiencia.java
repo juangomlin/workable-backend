@@ -2,12 +2,11 @@ package com.workable_sb.workable.models;
 
 import java.sql.Date;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,7 +26,7 @@ public class DatoExperiencia {
   private String cargo;
 
   @Column(nullable = false, length = 255)
-  private String nombreEmpresa;
+  private String empresa;
 
   @Column(nullable = false)
   private Date fechaInicio;
@@ -36,15 +35,9 @@ public class DatoExperiencia {
   private Date fechaFin;
 
   @Column(nullable = false, length = 255)
-  private String descripcion;
+  private String ubicacion;
 
-  @Column(nullable = false, length = 255)
-  private String ciudad;
-
-  @Column(nullable = false, length = 255)
-  private String pais;
-
-  @OneToOne(cascade = CascadeType.ALL)
-  @JoinColumn(name = "usuario_id", referencedColumnName = "usuario_id", foreignKey = @ForeignKey(name = "FK_datoExpreiencia_Usuario"))
+  @ManyToOne(optional = false)
+  @JoinColumn(name = "usuario_id", nullable = false, foreignKey = @ForeignKey(name = "FK_datoExpreiencia_Usuario"))
   private Usuario usuario;
 }

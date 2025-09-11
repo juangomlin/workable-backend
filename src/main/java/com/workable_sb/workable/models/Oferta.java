@@ -40,17 +40,17 @@ public class Oferta {
 
   @ManyToOne(optional = false)
   @JoinColumn(name = "modalidad_id", nullable = false,
-  foreignKey = @jakarta.persistence.ForeignKey(name = "FK_modalidad_oferta"))
+  foreignKey = @jakarta.persistence.ForeignKey(name = "FK_oferta_modalidad"))
   private Modalidad modalidad;
 
   @ManyToOne(optional = false)
   @JoinColumn(name = "tipoContrato_id", nullable = false,
-  foreignKey = @jakarta.persistence.ForeignKey(name = "FK_tipoCont_oferta"))
+  foreignKey = @jakarta.persistence.ForeignKey(name = "FK_oferta_tipoContrato"))
   private TipoContrato tipoContrato;
 
   @ManyToOne(optional = false)
   @JoinColumn(name = "empresa_id", nullable = false,
-  foreignKey = @jakarta.persistence.ForeignKey(name = "FK_empresa_oferta"))
+  foreignKey = @jakarta.persistence.ForeignKey(name = "FK_oferta_empresa"))
   private Empresa empresa;
 
 }
