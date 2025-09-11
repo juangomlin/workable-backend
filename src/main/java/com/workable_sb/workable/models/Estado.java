@@ -11,7 +11,7 @@ import lombok.Getter;
 @Table(name = "estado")
 public class Estado {
     @Id
-    private Integer estado_id;
+    private Short estado_id;
 
     @Column(nullable = false, length = 50)
     private String nombre;
