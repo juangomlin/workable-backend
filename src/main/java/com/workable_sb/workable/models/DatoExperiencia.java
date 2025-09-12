@@ -12,6 +12,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import jakarta.persistence.ForeignKey;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,6 +22,7 @@ import jakarta.persistence.ForeignKey;
 @Table(name = "dato_experiencia")
 public class DatoExperiencia {
   @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer experiencia_id;
 
   @Column(nullable = false, length = 255)

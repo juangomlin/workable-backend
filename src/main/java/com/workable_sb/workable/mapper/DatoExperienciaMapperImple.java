@@ -11,13 +11,11 @@ import com.workable_sb.workable.repositories.UsuarioRepository;
 import jakarta.persistence.EntityNotFoundException;
 
 @Component
-public class DatoExperienciaMapperImple {
+public class DatoExperienciaMapperImple implements DatoExperienciaMapper {
 
-    private final DatoExperienciaRepository datoExperienciaRepository;
     private final UsuarioRepository usuarioRepository;
 
-    public DatoExperienciaMapperImple(DatoExperienciaRepository datoExperienciaRepository, UsuarioRepository usuarioRepository) {
-        this.datoExperienciaRepository = datoExperienciaRepository;
+    public DatoExperienciaMapperImple(UsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
     }
 
@@ -32,13 +30,21 @@ public class DatoExperienciaMapperImple {
         datoExperiencia.setUbicacion(datoExperienciaDto.getUbicacion());
 
         Usuario usuario = usuarioRepository.findById(datoExperienciaDto.getUsr_id())
-                .orElseThrow(() -> new EntityNotFoundException("Cargo no encontrado"));
-        datoExperiencia.setUsuario(usuario); 
+                .orElseThrow(() -> new EntityNotFoundException("Usuario no encontrado:"));
+
+        return datoExperiencia;
     }
 
-    @Override   
-    public DatoExperienciaDto consulDto(DatoExperienciaDto entity) {
+    @Override
+    public DatoExperienciaDto consultDto(DatoExperiencia datoExperienciaDto) {
         return new DatoExperienciaDto(
-         
+                datoExperienciaDto.getExperiencia_id(),
+                datoExperienciaDto.getCargo(),
+                datoExperienciaDto.getEmpresa(),
+                datoExperienciaDto.getFechaInicio(),
+                datoExperienciaDto.getFechaFin(),
+                datoExperienciaDto.getUbicacion(),
+                datoExperienciaDto.getUsuario().getUsuario_id(),
+                datoExperienciaDto.getUsuario().getNombre());
     }
 }

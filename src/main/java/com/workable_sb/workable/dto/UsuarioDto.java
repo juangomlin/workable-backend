@@ -9,9 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class UsuarioDto {
-
   private Integer id;
 
   @NotNull

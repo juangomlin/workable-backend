@@ -20,7 +20,8 @@ public class DatoExperienciaDto {
 
   @NotNull
   private Date fechaIn;
-  
+
+  @NotNull
   private Date fechaFi;
 
   @NotNull
