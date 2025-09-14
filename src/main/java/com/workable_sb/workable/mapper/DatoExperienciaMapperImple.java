@@ -5,7 +5,6 @@ import org.springframework.stereotype.Component;
 import com.workable_sb.workable.dto.DatoExperienciaDto;
 import com.workable_sb.workable.models.DatoExperiencia;
 import com.workable_sb.workable.models.Usuario;
-import com.workable_sb.workable.repositories.DatoExperienciaRepository;
 import com.workable_sb.workable.repositories.UsuarioRepository;
 
 import jakarta.persistence.EntityNotFoundException;
@@ -29,22 +28,27 @@ public class DatoExperienciaMapperImple implements DatoExperienciaMapper {
         datoExperiencia.setFechaFin(datoExperienciaDto.getFechaFi());
         datoExperiencia.setUbicacion(datoExperienciaDto.getUbicacion());
 
-        Usuario usuario = usuarioRepository.findById(datoExperienciaDto.getUsr_id())
-                .orElseThrow(() -> new EntityNotFoundException("Usuario no encontrado:"));
+        if (datoExperienciaDto.getUsr_id() != null) {
+            Usuario usuario = usuarioRepository.findById(datoExperienciaDto.getUsr_id())
+                    .orElseThrow(() -> new EntityNotFoundException("Usuario no encontrado con ID: " + datoExperienciaDto.getUsr_id()));
+            datoExperiencia.setUsuario(usuario);
+        } else {
+            datoExperiencia.setUsuario(null);
+        }
 
         return datoExperiencia;
     }
 
     @Override
     public DatoExperienciaDto consultDto(DatoExperiencia datoExperienciaDto) {
-        return new DatoExperienciaDto(
-                datoExperienciaDto.getExperiencia_id(),
-                datoExperienciaDto.getCargo(),
-                datoExperienciaDto.getEmpresa(),
-                datoExperienciaDto.getFechaInicio(),
-                datoExperienciaDto.getFechaFin(),
-                datoExperienciaDto.getUbicacion(),
-                datoExperienciaDto.getUsuario().getUsuario_id(),
-                datoExperienciaDto.getUsuario().getNombre());
+    return new DatoExperienciaDto(
+            datoExperienciaDto.getExperiencia_id(),
+            datoExperienciaDto.getCargo(),
+            datoExperienciaDto.getEmpresa(),
+            datoExperienciaDto.getFechaInicio(),
+            datoExperienciaDto.getFechaFin(),
+            datoExperienciaDto.getUbicacion(),
+            datoExperienciaDto.getUsuario().getUsuario_id(),
+            datoExperienciaDto.getUsuario().getNombre());
     }
 }

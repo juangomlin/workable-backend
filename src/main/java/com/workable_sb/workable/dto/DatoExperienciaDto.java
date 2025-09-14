@@ -29,4 +29,6 @@ public class DatoExperienciaDto {
 
   @NotNull(message = "el ID de usuario es obligatorio")
   private Integer usr_id;
+
+  private String usr_nombre;
 }
