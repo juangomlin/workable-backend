@@ -22,10 +22,10 @@ public class DatoEstudioDto {
   private Date fechaFi;
 
   @NotNull
-  private String inst;
+  private String cert;
 
   @NotNull
-  private String cert;
+  private String inst;
 
   @NotNull(message = "el id de nuvel educativo es obligatorio")
   private Integer nivEdu_id;
