@@ -5,10 +5,10 @@ import org.springframework.stereotype.Component;
 
 import com.workable_sb.workable.dto.ValoracionDto;
 import com.workable_sb.workable.models.Empresa;
-import com.workable_sb.workable.models.Usuario;
+import com.workable_sb.workable.models.Aspirante;
 import com.workable_sb.workable.models.Valoracion;
 import com.workable_sb.workable.repositories.EmpresaRepository;
-import com.workable_sb.workable.repositories.UsuarioRepository;
+import com.workable_sb.workable.repositories.AspiranteRepository;
 
 import jakarta.persistence.EntityNotFoundException;
 
@@ -16,9 +16,9 @@ import jakarta.persistence.EntityNotFoundException;
 public class ValoracionMapperImple implements ValoracionMapper {
 
   private final EmpresaRepository empresaRepository;
-  private final UsuarioRepository usuarioRepository;
+  private final AspiranteRepository usuarioRepository;
 
-  public ValoracionMapperImple(EmpresaRepository empresaRepository, UsuarioRepository usuarioRepository){
+  public ValoracionMapperImple(EmpresaRepository empresaRepository, AspiranteRepository usuarioRepository){
     this.empresaRepository = empresaRepository;
     this.usuarioRepository = usuarioRepository;
   }
@@ -35,7 +35,7 @@ public class ValoracionMapperImple implements ValoracionMapper {
   .orElseThrow(() -> new EntityNotFoundException("Empresa no encontrada"));
   valoracion.setEmpresa(empresa);
 
-  Usuario usuario = usuarioRepository.findById(valoracionDto.getUsuario_id())
+  Aspirante usuario = usuarioRepository.findById(valoracionDto.getUsuario_id())
   .orElseThrow(() -> new EntityNotFoundException("Usuario no encontrado"));
   valoracion.setUsuario(usuario);
 

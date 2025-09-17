@@ -5,40 +5,40 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import com.workable_sb.workable.dto.UsuarioDto;
-import com.workable_sb.workable.mapper.UsuarioMapper;
-import com.workable_sb.workable.models.Usuario;
-import com.workable_sb.workable.repositories.UsuarioRepository;
+import com.workable_sb.workable.dto.AspiranteDto;
+import com.workable_sb.workable.mapper.AspiranteMapper;
+import com.workable_sb.workable.models.Aspirante;
+import com.workable_sb.workable.repositories.AspiranteRepository;
 
 import jakarta.persistence.EntityNotFoundException;
 
 @Service
-public class UsuarioServiceImple implements UsuarioService{
+public class AspiranteServiceImple implements AspiranteService{
 
-  private final UsuarioRepository usuarioRepository;
-  private final UsuarioMapper usuarioMapper;
+  private final AspiranteRepository usuarioRepository;
+  private final AspiranteMapper usuarioMapper;
 
-  public UsuarioServiceImple(UsuarioRepository usuarioRepository, UsuarioMapper usuarioMapper){
+  public AspiranteServiceImple(AspiranteRepository usuarioRepository, AspiranteMapper usuarioMapper){
     this.usuarioRepository = usuarioRepository;
     this.usuarioMapper = usuarioMapper;
   }
 
   @Override
-  public UsuarioDto guardar(UsuarioDto usuarioDto){
-    Usuario usuario = usuarioMapper.consult(usuarioDto);
-    Usuario guardado = usuarioRepository.save(usuario);
+  public AspiranteDto guardar(AspiranteDto usuarioDto){
+    Aspirante usuario = usuarioMapper.consult(usuarioDto);
+    Aspirante guardado = usuarioRepository.save(usuario);
     return usuarioMapper.consultDto(guardado);
   }
 
   @Override
-  public UsuarioDto listId(Integer id){
+  public AspiranteDto listId(Integer id){
     return usuarioRepository.findById(id)
       .map(usuarioMapper::consultDto)
       .orElseThrow(() -> new EntityNotFoundException("usuario no encontrado"));
   }
 
   @Override
-  public List<UsuarioDto> listarAll(){
+  public List<AspiranteDto> listarAll(){
     return usuarioRepository.findAll()
     .stream()
     .map(usuarioMapper:: consultDto)

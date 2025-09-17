@@ -44,5 +44,5 @@ public class DatoEstudio {
 
     @ManyToOne(optional = false)
     @JoinColumn (name = "usuario_id", nullable = false, foreignKey = @ForeignKey(name = "FK_datoEstudio_usuario"))
-    private Usuario usuario;
+    private Aspirante usuario;
 }

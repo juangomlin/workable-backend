@@ -41,5 +41,5 @@ public class Valoracion {
 
 	@ManyToOne(optional = false, fetch = FetchType.LAZY)
 	@JoinColumn(name = "usuario_id", nullable = false, foreignKey = @jakarta.persistence.ForeignKey(name = "FK_usuario_valoracion"))
-	private Usuario usuario;
+	private Aspirante usuario;
 }

@@ -2,8 +2,8 @@ package com.workable_sb.workable.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import com.workable_sb.workable.dto.UsuarioDto;
-import com.workable_sb.workable.service.UsuarioService;
+import com.workable_sb.workable.dto.AspiranteDto;
+import com.workable_sb.workable.service.AspiranteService;
 
 import jakarta.validation.Valid;
 
@@ -21,34 +21,34 @@ import org.springframework.web.bind.annotation.PathVariable;
 @RestController
 @RequestMapping("/api/usuarios")
 
-public class UsuarioController {
+public class ApiranteController {
 
-  private final UsuarioService usuarioService;
+  private final AspiranteService aspiranteService;
 
-      public UsuarioController(UsuarioService usuarioService) {
-        this.usuarioService = usuarioService;
+      public ApiranteController(AspiranteService aspiranteService) {
+        this.aspiranteService = aspiranteService;
   }
   @PostMapping
-    public ResponseEntity<UsuarioDto> guardar(@Valid @RequestBody UsuarioDto usuarioDto) {
-        UsuarioDto guardado = usuarioService.guardar(usuarioDto);
+    public ResponseEntity<AspiranteDto> guardar(@Valid @RequestBody AspiranteDto usuarioDto) {
+        AspiranteDto guardado = aspiranteService.guardar(usuarioDto);
         return ResponseEntity.ok(guardado);
     }
 
   @GetMapping("/{id}")
-    public ResponseEntity <UsuarioDto> ListId(@PathVariable Integer id) {
-      UsuarioDto usuarioDto = usuarioService.listId(id);
-        return ResponseEntity.ok(usuarioDto);
+    public ResponseEntity <AspiranteDto> ListId(@PathVariable Integer id) {
+      AspiranteDto aspiranteDto = aspiranteService.listId(id);
+        return ResponseEntity.ok(aspiranteDto);
   }
 
   @GetMapping
-    public ResponseEntity<List<UsuarioDto>>listarAll(){
-      List<UsuarioDto> usuarios = usuarioService.listarAll();
+    public ResponseEntity<List<AspiranteDto>>listarAll(){
+      List<AspiranteDto> usuarios = aspiranteService.listarAll();
       return ResponseEntity.ok(usuarios);
     }
 
   @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable Integer id){
-      usuarioService.eliminar(id);
+      aspiranteService.eliminar(id);
       return ResponseEntity.noContent().build();
     }
 
