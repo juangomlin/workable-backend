@@ -8,25 +8,25 @@ import org.springframework.stereotype.Service;
 import com.workable_sb.workable.dto.ReclutadorDto;
 import com.workable_sb.workable.mapper.ReclutadorMapper;
 import com.workable_sb.workable.models.Reclutador;
+import com.workable_sb.workable.repositories.AspiranteRepository;
 import com.workable_sb.workable.repositories.EmpresaRepository;
 import com.workable_sb.workable.repositories.ReclutadorRepository;
-import com.workable_sb.workable.repositories.UsuarioRepository;
 
 import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class ReclutadorServiceImple implements ReclutadorService {
-    
+
+    private final AspiranteRepository aspiranteRepository;
     private final ReclutadorRepository reclutadorRepository;
     private final ReclutadorMapper reclutadorMapper;
     private final EmpresaRepository empresaRepository;
-    private final UsuarioRepository usuarioRepository;
 
-    public ReclutadorServiceImple(ReclutadorRepository reclutadorRepository,ReclutadorMapper reclutadorMapper, EmpresaRepository empresaRepository, UsuarioRepository usuarioRepository) {
+    public ReclutadorServiceImple(ReclutadorRepository reclutadorRepository,ReclutadorMapper reclutadorMapper, EmpresaRepository empresaRepository, AspiranteRepository aspiranteRepository, AspiranteRepository aspiranteRepository2) {
         this.reclutadorRepository = reclutadorRepository;
         this.reclutadorMapper = reclutadorMapper;
         this.empresaRepository = empresaRepository;
-        this.usuarioRepository = usuarioRepository;
+        this.aspiranteRepository = aspiranteRepository;
     }
 
     @Override
