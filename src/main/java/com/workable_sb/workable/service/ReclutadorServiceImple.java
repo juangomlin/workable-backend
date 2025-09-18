@@ -17,16 +17,12 @@ import jakarta.persistence.EntityNotFoundException;
 @Service
 public class ReclutadorServiceImple implements ReclutadorService {
 
-    private final AspiranteRepository aspiranteRepository;
     private final ReclutadorRepository reclutadorRepository;
     private final ReclutadorMapper reclutadorMapper;
-    private final EmpresaRepository empresaRepository;
 
     public ReclutadorServiceImple(ReclutadorRepository reclutadorRepository,ReclutadorMapper reclutadorMapper, EmpresaRepository empresaRepository, AspiranteRepository aspiranteRepository, AspiranteRepository aspiranteRepository2) {
         this.reclutadorRepository = reclutadorRepository;
         this.reclutadorMapper = reclutadorMapper;
-        this.empresaRepository = empresaRepository;
-        this.aspiranteRepository = aspiranteRepository;
     }
 
     @Override
