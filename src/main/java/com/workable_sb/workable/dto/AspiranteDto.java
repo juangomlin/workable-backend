@@ -44,13 +44,13 @@ public class AspiranteDto {
   @NotNull
   private String cla;
 
-  @NotNull(message = "El id de genero es obligatorio")
-  private Short  genero_id;
-
   @NotNull(message = "El id de tipo de documento es obligatorio")
   private Integer tipDoc_id;
 
   @NotNull(message = "El id de municipio es obligatorio")
   private Integer munici_id;
+
+  @NotNull(message = "El id de genero es obligatorio")
+  private Short  genero_id;
 
 }

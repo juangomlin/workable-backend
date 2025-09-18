@@ -26,12 +26,12 @@ public class AspiranteReadDto {
 
   private Date feNa;
 
-  private Short  genero_id;
-  private String nombreGenero;
-
   private Integer tipDoc_id;
   private String nombreTipDoc;
 
   private Integer munici_id;
   private String nombreMunicipio;
+
+  private Short  genero_id;
+  private String nombreGenero;
 }
