@@ -8,7 +8,7 @@ import com.workable_sb.workable.models.Reclutador;
 import com.workable_sb.workable.models.Rol;
 import com.workable_sb.workable.repositories.EmpresaRepository;
 import com.workable_sb.workable.repositories.RolRepository;
-import com.workable_sb.workable.repositories.UsuarioRepository;
+
 
 import jakarta.persistence.EntityNotFoundException;
 
@@ -18,7 +18,7 @@ public class ReclutadorMapperImple implements ReclutadorMapper {
     private final EmpresaRepository empresaRepository;
     private final RolRepository rolRepository;
 
-    public ReclutadorMapperImple(EmpresaRepository empresaRepository, UsuarioRepository usuarioRepository) {
+    public ReclutadorMapperImple(EmpresaRepository empresaRepository, RolRepository rolRepository) {
         this.empresaRepository = empresaRepository;
         this.rolRepository = rolRepository;
     }
