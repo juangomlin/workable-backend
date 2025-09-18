@@ -6,9 +6,10 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ForeignKey;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.Lob;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -22,7 +23,8 @@ import lombok.NoArgsConstructor;
 @Table(name = "info_personal")
 public class InfoPersonal {
   @Id
-  private Short infoPersonal_id;
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Integer infoPersonal_id;
 
   @Column(nullable = false, length = 100)
   private String ubicacion;
@@ -33,9 +35,8 @@ public class InfoPersonal {
   @Column(nullable = false)
   private Date fechaNacimiento;
 
-  @Lob
-  @Column(columnDefinition = "LONGBLOB")
-  private byte[] fotoPerfil;
+  @Column(nullable = false)
+  private String fotoPerfil;
 
   @OneToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "genero_id", referencedColumnName = "genero_id", foreignKey = @ForeignKey(name = "FK_infoPersonal_Genero"))

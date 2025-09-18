@@ -26,7 +26,7 @@ public class UsuarioDiscapacidad {
   }
 
   @EmbeddedId
-  private UsuarioDiscapacidadId id= new UsuarioDiscapacidadId();
+  private UsuarioDiscapacidadId id = new UsuarioDiscapacidadId();
 
   @ManyToOne
   @MapsId("usuario_id")

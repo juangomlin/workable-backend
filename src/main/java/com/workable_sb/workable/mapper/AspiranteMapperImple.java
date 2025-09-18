@@ -63,7 +63,7 @@ public class AspiranteMapperImple implements AspiranteMapper{
   }
 
   @Override
-  public AspiranteDto consultDto(Aspirante entity){
+  public AspiranteReadDto consultDto(Aspirante entity){
     return new AspiranteDto(
       entity.getUsuario_id(),
       entity.getNombre(),
