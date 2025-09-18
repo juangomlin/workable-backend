@@ -3,6 +3,7 @@ package com.workable_sb.workable.mapper;
 import org.springframework.stereotype.Component;
 
 import com.workable_sb.workable.dto.AspiranteDto;
+import com.workable_sb.workable.dto.AspiranteReadDto;
 import com.workable_sb.workable.models.Genero;
 import com.workable_sb.workable.models.Municipio;
 import com.workable_sb.workable.models.TipDocumento;
@@ -63,7 +64,7 @@ public class AspiranteMapperImple implements AspiranteMapper{
   }
 
   @Override
-  public AspiranteDto consultDto(Aspirante entity){
+  public AspiranteReadDto consulReadtDto(Aspirante entity){
     return new AspiranteDto(
       entity.getUsuario_id(),
       entity.getNombre(),
