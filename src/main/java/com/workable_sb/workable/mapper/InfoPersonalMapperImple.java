@@ -41,7 +41,6 @@ public class InfoPersonalMapperImple implements InfoPersonalMapper {
         Usuario usuario = usuarioRepository.findById(infoPersonalDto.getUsuario_id()).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
         infoPersonal.setUsuario(usuario);
 
-        
         return infoPersonal;
 
     }
