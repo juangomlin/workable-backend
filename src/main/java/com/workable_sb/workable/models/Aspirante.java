@@ -25,7 +25,7 @@ public class Aspirante {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Integer usuario_id;
+  private Integer aspirante_id;
 
   @Column(nullable = false, length = 255)
   private String nombre;

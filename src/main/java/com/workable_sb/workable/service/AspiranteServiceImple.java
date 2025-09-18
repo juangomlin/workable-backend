@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
 import com.workable_sb.workable.dto.AspiranteDto;
+import com.workable_sb.workable.dto.AspiranteReadDto;
 import com.workable_sb.workable.mapper.AspiranteMapper;
 import com.workable_sb.workable.models.Aspirante;
 import com.workable_sb.workable.repositories.AspiranteRepository;
@@ -24,30 +25,32 @@ public class AspiranteServiceImple implements AspiranteService{
   }
 
   @Override
-  public AspiranteDto guardar(AspiranteDto usuarioDto){
-    Aspirante usuario = aspiranteMapper.consult(usuarioDto);
+  public AspiranteReadDto guardar(AspiranteDto aspiranteDto){
+    Aspirante usuario = aspiranteMapper.consult(aspiranteDto);
     Aspirante guardado = aspiranteRepository.save(usuario);
-    return aspiranteMapper.consultDto(guardado);
+    return aspiranteMapper.consultReadDto(guardado);
   }
 
   @Override
-  public AspiranteDto listId(Integer id){
+  public AspiranteReadDto listId(Integer id){
     return aspiranteRepository.findById(id)
-      .map(aspiranteMapper::consultDto)
+      .map(aspiranteMapper::consultReadDto)
       .orElseThrow(() -> new EntityNotFoundException("usuario no encontrado"));
   }
 
   @Override
-  public List<AspiranteDto> listarAll(){
+  public List<AspiranteReadDto> listarAll(){
     return aspiranteRepository.findAll()
     .stream()
-    .map(aspiranteMapper:: consultDto)
+    .map(aspiranteMapper:: consultReadDto)
     .collect(Collectors.toList());
   }
 
   @Override
-  public void eliminar(Integer id){
-    aspiranteRepository.deleteById(id);
+    public void eliminar(Integer id) {
+      Aspirante aspirante = aspiranteRepository.findById(id)
+          .orElseThrow(() -> new EntityNotFoundException("Aspirante no encontrado"));
+      aspiranteRepository.delete(aspirante);
   }
-  
+
 }

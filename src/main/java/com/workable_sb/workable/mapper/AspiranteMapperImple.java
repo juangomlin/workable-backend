@@ -35,7 +35,7 @@ public class AspiranteMapperImple implements AspiranteMapper{
 
     if(aspiranteDto == null)
     return null;
-    aspirante.setUsuario_id(aspiranteDto.getId());
+    aspirante.setAspirante_id(aspiranteDto.getId());
     aspirante.setNombre(aspiranteDto.getNom());
     aspirante.setApellido(aspiranteDto.getApe());
     aspirante.setCorreo(aspiranteDto.getCorr());
@@ -64,19 +64,23 @@ public class AspiranteMapperImple implements AspiranteMapper{
   }
 
   @Override
-  public AspiranteReadDto consulReadtDto(Aspirante entity){
-    return new AspiranteDto(
-      entity.getUsuario_id(),
+  public AspiranteReadDto consultReadDto(Aspirante entity){
+    if(entity == null)
+    return null;
+
+    return new AspiranteReadDto(
+      entity.getAspirante_id(),
       entity.getNombre(),
       entity.getApellido(),
       entity.getCorreo(),
       entity.getUbicacion(),
       entity.getTelefono(),
       entity.getFecha_Nacimiento(),
-      entity.getFoto(),
-      entity.getClave(),
-      entity.getGenero().getGenero_id(),
       entity.getTipDocumento().getTipoDocumento_id(),
-      entity.getMunicipio().getMunicipio_id());
+      entity.getTipDocumento().getNombre(),
+      entity.getMunicipio().getMunicipio_id(),
+      entity.getMunicipio().getNombre(),
+      entity.getGenero().getGenero_id(),
+      entity.getGenero().getNombre());
   }
 }
