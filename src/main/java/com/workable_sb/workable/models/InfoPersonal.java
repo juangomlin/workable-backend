@@ -44,5 +44,5 @@ public class InfoPersonal {
 
   @OneToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "usuario_id", referencedColumnName = "usuario_id", foreignKey = @ForeignKey(name = "FK_infoPersonal_Usuario"))
-  private Usuario usuario;
+  private Aspirante usuario;
 }
