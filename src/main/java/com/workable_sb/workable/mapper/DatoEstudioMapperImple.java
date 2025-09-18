@@ -3,11 +3,11 @@ package com.workable_sb.workable.mapper;
 import org.springframework.stereotype.Component;
 
 import com.workable_sb.workable.dto.DatoEstudioDto;
+import com.workable_sb.workable.models.Aspirante;
 import com.workable_sb.workable.models.DatoEstudio;
 import com.workable_sb.workable.models.NivelEducativo;
-import com.workable_sb.workable.models.Usuario;
+import com.workable_sb.workable.repositories.AspiranteRepository;
 import com.workable_sb.workable.repositories.NivelEducativoRepository;
-import com.workable_sb.workable.repositories.UsuarioRepository;
 
 import jakarta.persistence.EntityNotFoundException;
 
@@ -15,11 +15,11 @@ import jakarta.persistence.EntityNotFoundException;
 public class DatoEstudioMapperImple implements DatoEstudioMapper {
 
     private NivelEducativoRepository nivelEducativoRepository;
-    private UsuarioRepository usuarioRepository;
+    private AspiranteRepository aspiranteRepository;
 
-    public DatoEstudioMapperImple(NivelEducativoRepository nivelEducativoRepository, UsuarioRepository usuarioRepository) {
+    public DatoEstudioMapperImple(NivelEducativoRepository nivelEducativoRepository, AspiranteRepository aspiranteRepository) {
         this.nivelEducativoRepository = nivelEducativoRepository;
-        this.usuarioRepository = usuarioRepository;
+        this.aspiranteRepository = aspiranteRepository;
     }
 
     @Override
@@ -35,8 +35,8 @@ public class DatoEstudioMapperImple implements DatoEstudioMapper {
         NivelEducativo nivelEducativo = nivelEducativoRepository.findById(datoEstudioDto.getNivEdu_id()).orElseThrow(() -> new EntityNotFoundException("Nivel educativo no encontrado"));
         datoEstudio.setNivelEducativo(nivelEducativo);
 
-        Usuario usuario = usuarioRepository.findById(datoEstudioDto.getUsr_id()).orElseThrow(() -> new EntityNotFoundException("Usuario no encontrado"));
-        datoEstudio.setUsuario(usuario);
+        Aspirante aspirante = aspiranteRepository.findById(datoEstudioDto.getUsr_id()).orElseThrow(() -> new EntityNotFoundException("Usuario no encontrado"));
+        datoEstudio.setUsuario(aspirante);
 
         return datoEstudio;
     }

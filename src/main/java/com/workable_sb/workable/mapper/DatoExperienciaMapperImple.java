@@ -3,19 +3,20 @@ package com.workable_sb.workable.mapper;
 import org.springframework.stereotype.Component;
 
 import com.workable_sb.workable.dto.DatoExperienciaDto;
+import com.workable_sb.workable.models.Aspirante;
 import com.workable_sb.workable.models.DatoExperiencia;
-import com.workable_sb.workable.models.Usuario;
-import com.workable_sb.workable.repositories.UsuarioRepository;
+import com.workable_sb.workable.repositories.AspiranteRepository;
+
 
 import jakarta.persistence.EntityNotFoundException;
 
 @Component
 public class DatoExperienciaMapperImple implements DatoExperienciaMapper {
 
-    private final UsuarioRepository usuarioRepository;
+    private final AspiranteRepository aspiranteRepository;
 
-    public DatoExperienciaMapperImple(UsuarioRepository usuarioRepository) {
-        this.usuarioRepository = usuarioRepository;
+    public DatoExperienciaMapperImple(AspiranteRepository usuarioRepository) {
+        this.aspiranteRepository = usuarioRepository;
     }
 
     @Override
@@ -29,7 +30,7 @@ public class DatoExperienciaMapperImple implements DatoExperienciaMapper {
         datoExperiencia.setUbicacion(datoExperienciaDto.getUbicacion());
 
         if (datoExperienciaDto.getUsr_id() != null) {
-            Usuario usuario = usuarioRepository.findById(datoExperienciaDto.getUsr_id())
+            Aspirante usuario = aspiranteRepository.findById(datoExperienciaDto.getUsr_id())
                     .orElseThrow(() -> new EntityNotFoundException("Usuario no encontrado con ID: " + datoExperienciaDto.getUsr_id()));
             datoExperiencia.setUsuario(usuario);
         } else {

@@ -25,7 +25,7 @@ public class InfoPersonalDto {
     private String fotperfil;
 
     @NotNull(message = "El id del genero es obligatorio")
-    private Integer genero_id;
+    private Short genero_id;
 
     private String nombregenr;
 
