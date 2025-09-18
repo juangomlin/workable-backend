@@ -5,7 +5,7 @@ import java.util.List;
 import com.workable_sb.workable.dto.AspiranteDto;
 
 public interface AspiranteService {
-  AspiranteDto guardar(AspiranteDto usuarioDto);
+  AspiranteDto guardar(AspiranteDto aspiranteDto);
   AspiranteDto listId(Integer id);
   List<AspiranteDto> listarAll();
   void eliminar(Integer id);

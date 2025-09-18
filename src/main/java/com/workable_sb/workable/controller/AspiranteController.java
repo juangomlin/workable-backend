@@ -19,18 +19,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 
 @RestController
-@RequestMapping("/api/usuarios")
+@RequestMapping("/api/aspirante")
 
-public class ApiranteController {
+public class AspiranteController {
 
   private final AspiranteService aspiranteService;
 
-      public ApiranteController(AspiranteService aspiranteService) {
+      public AspiranteController(AspiranteService aspiranteService) {
         this.aspiranteService = aspiranteService;
   }
   @PostMapping
-    public ResponseEntity<AspiranteDto> guardar(@Valid @RequestBody AspiranteDto usuarioDto) {
-        AspiranteDto guardado = aspiranteService.guardar(usuarioDto);
+    public ResponseEntity<AspiranteDto> guardar(@Valid @RequestBody AspiranteDto aspiranteDto) {
+        AspiranteDto guardado = aspiranteService.guardar(aspiranteDto);
         return ResponseEntity.ok(guardado);
     }
 
@@ -42,8 +42,8 @@ public class ApiranteController {
 
   @GetMapping
     public ResponseEntity<List<AspiranteDto>>listarAll(){
-      List<AspiranteDto> usuarios = aspiranteService.listarAll();
-      return ResponseEntity.ok(usuarios);
+      List<AspiranteDto> aspirantes = aspiranteService.listarAll();
+      return ResponseEntity.ok(aspirantes);
     }
 
   @DeleteMapping("/{id}")

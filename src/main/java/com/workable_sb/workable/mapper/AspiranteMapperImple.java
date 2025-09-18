@@ -68,13 +68,14 @@ public class AspiranteMapperImple implements AspiranteMapper{
       entity.getUsuario_id(),
       entity.getNombre(),
       entity.getApellido(),
-      entity.getClave(),
       entity.getCorreo(),
-      entity.getMunicipio().getMunicipio_id(),
-      entity.getMunicipio().getNombre(),
-      entity.getTipDocumento().getTipoDocumento_id(),
-      entity.getTipDocumento().getNombre(),
+      entity.getUbicacion(),
+      entity.getTelefono(),
+      entity.getFecha_Nacimiento(),
+      entity.getFoto(),
+      entity.getClave(),
       entity.getGenero().getGenero_id(),
-      entity.getGenero().getNombre());
+      entity.getTipDocumento().getTipoDocumento_id(),
+      entity.getMunicipio().getMunicipio_id());
   }
 }

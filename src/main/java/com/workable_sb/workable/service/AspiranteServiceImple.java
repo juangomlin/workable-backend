@@ -15,39 +15,39 @@ import jakarta.persistence.EntityNotFoundException;
 @Service
 public class AspiranteServiceImple implements AspiranteService{
 
-  private final AspiranteRepository usuarioRepository;
-  private final AspiranteMapper usuarioMapper;
+  private final AspiranteRepository aspiranteRepository;
+  private final AspiranteMapper aspiranteMapper;
 
-  public AspiranteServiceImple(AspiranteRepository usuarioRepository, AspiranteMapper usuarioMapper){
-    this.usuarioRepository = usuarioRepository;
-    this.usuarioMapper = usuarioMapper;
+  public AspiranteServiceImple(AspiranteRepository aspiranteRepository, AspiranteMapper aspiranteMapper){
+    this.aspiranteRepository = aspiranteRepository;
+    this.aspiranteMapper = aspiranteMapper;
   }
 
   @Override
   public AspiranteDto guardar(AspiranteDto usuarioDto){
-    Aspirante usuario = usuarioMapper.consult(usuarioDto);
-    Aspirante guardado = usuarioRepository.save(usuario);
-    return usuarioMapper.consultDto(guardado);
+    Aspirante usuario = aspiranteMapper.consult(usuarioDto);
+    Aspirante guardado = aspiranteRepository.save(usuario);
+    return aspiranteMapper.consultDto(guardado);
   }
 
   @Override
   public AspiranteDto listId(Integer id){
-    return usuarioRepository.findById(id)
-      .map(usuarioMapper::consultDto)
+    return aspiranteRepository.findById(id)
+      .map(aspiranteMapper::consultDto)
       .orElseThrow(() -> new EntityNotFoundException("usuario no encontrado"));
   }
 
   @Override
   public List<AspiranteDto> listarAll(){
-    return usuarioRepository.findAll()
+    return aspiranteRepository.findAll()
     .stream()
-    .map(usuarioMapper:: consultDto)
+    .map(aspiranteMapper:: consultDto)
     .collect(Collectors.toList());
   }
 
   @Override
   public void eliminar(Integer id){
-    usuarioRepository.deleteById(id);
+    aspiranteRepository.deleteById(id);
   }
   
 }

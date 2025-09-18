@@ -1,6 +1,5 @@
 package com.workable_sb.workable.models;
 
-import java.sql.Blob;
 import java.util.Date;
 
 import jakarta.persistence.Column;
@@ -45,8 +44,8 @@ public class Aspirante {
 
   private Date fecha_Nacimiento;
 
- @Lob
-private byte[] foto;
+  @Lob
+  private byte[] foto;
 
   @Column(nullable = false, length = 500)
   private String clave;

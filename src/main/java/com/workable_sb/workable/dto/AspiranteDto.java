@@ -3,6 +3,7 @@ package com.workable_sb.workable.dto;
 import java.util.Date;
 
 import jakarta.persistence.Lob;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,16 +18,16 @@ public class AspiranteDto {
 
   private Integer id;
 
-  @NotNull
+  @NotBlank
   private String nom;
 
-  @NotNull
+  @NotBlank
   private String ape;
 
-  @NotNull
+  @NotBlank
   private String corr;
 
-  @NotNull
+  @NotBlank
   private String ubi;
 
   @NotNull
@@ -41,17 +42,13 @@ public class AspiranteDto {
   @NotNull
   private String cla;
 
-
   @NotNull(message = "El id de genero es obligatorio")
   private Short  genero_id;
-  private String nombreGnere;
 
   @NotNull(message = "El id de tipo de documento es obligatorio")
   private Integer tipDoc_id;
-  private String nombreTipDoc;
 
   @NotNull(message = "El id de municipio es obligatorio")
   private Integer munici_id;
-  private String nombreMunicipio;
 
 }
