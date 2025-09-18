@@ -39,5 +39,5 @@ public class Postulacion {
   @ManyToOne(optional = false)
   @JoinColumn(name = "usuario_id", nullable = false,
   foreignKey = @jakarta.persistence.ForeignKey(name = "FK_usuario_postulacion"))
-  private Usuario usuario;
+  private Aspirante usuario;
 }

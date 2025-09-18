@@ -1,6 +1,7 @@
 package com.workable_sb.workable.models;
 
-import java.sql.Date;
+
+import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -29,7 +30,7 @@ public class Valoracion {
 	private String descripcion;
 
 	@Column(nullable = false)
-	private float puntuacion;
+	private Float puntuacion;
 
 	@Column(nullable = false)
 	private Date fecha_valoracion;
@@ -40,5 +41,5 @@ public class Valoracion {
 
 	@ManyToOne(optional = false, fetch = FetchType.LAZY)
 	@JoinColumn(name = "usuario_id", nullable = false, foreignKey = @jakarta.persistence.ForeignKey(name = "FK_usuario_valoracion"))
-	private Usuario usuario;
+	private Aspirante usuario;
 }

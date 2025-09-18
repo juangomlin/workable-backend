@@ -1,9 +1,9 @@
 package com.workable_sb.workable.models;
 
 import java.sql.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -18,31 +18,31 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Data
-@Table(name = "dato_estudio")
-public class DatoEstudio {
+@Table(name = "reclutador")
+public class Reclutador {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer estudio_id;
+    private Integer reclutador_id;
 
-    @Column(nullable = false, length = 255)
+    @Column(nullable = false, length = 20)
     private String nombre;
 
-    @Column(nullable = false)
-    private Date fechaInicio;
+    @Column(nullable = false, length = 255)
+    private String clave;
 
-    private Date fechaFin;
-
-    @Column(nullable = false)
-    private String institucion;
+    @Column(nullable = false, length = 255)
+    private String correo;
 
     @Column(nullable = false)
-    private String certificado;
+    private Date fecharegistro;
 
     @ManyToOne(optional = false)
-    @JoinColumn (name = "nivelEducativo_id", nullable = false, foreignKey = @ForeignKey(name = "FK_datosEstudios_nivelEducativo"))
-    private NivelEducativo nivelEducativo;
+    @JoinColumn(name = "empresa_id", nullable = false,
+    foreignKey = @jakarta.persistence.ForeignKey(name = "FK_reclutador_empresa"))
+    private Empresa empresa;
 
     @ManyToOne(optional = false)
-    @JoinColumn (name = "usuario_id", nullable = false, foreignKey = @ForeignKey(name = "FK_datoEstudio_usuario"))
-    private Aspirante usuario;
+    @JoinColumn(name = "rol_id", nullable = false,
+    foreignKey = @jakarta.persistence.ForeignKey(name = "FK_reclutador_rol"))
+    private Rol rol;
 }

@@ -20,7 +20,8 @@ public class DatoExperienciaDto {
 
   @NotNull
   private Date fechaIn;
-  
+
+  @NotNull
   private Date fechaFi;
 
   @NotNull
@@ -28,4 +29,6 @@ public class DatoExperienciaDto {
 
   @NotNull(message = "el ID de usuario es obligatorio")
   private Integer usr_id;
+
+  private String usr_nombre;
 }
