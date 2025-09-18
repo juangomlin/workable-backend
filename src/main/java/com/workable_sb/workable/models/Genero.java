@@ -13,7 +13,6 @@ import lombok.Getter;
 public class Genero {
     @Id
     private Short genero_id;
-
     @Column(nullable = false, length = 50)
     private String nombre;
 }

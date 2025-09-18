@@ -13,11 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
-
 public class AspiranteDto {
-
-
   private Integer id;
 
   @NotBlank
