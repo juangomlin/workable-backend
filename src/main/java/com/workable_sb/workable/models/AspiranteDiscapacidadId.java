@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UsuarioDiscapacidadId implements Serializable{
-  private Integer usuario_id;
+public class AspiranteDiscapacidadId implements Serializable{
+  private Integer aspirante_id;
   private Short discapacidad_id;
 }

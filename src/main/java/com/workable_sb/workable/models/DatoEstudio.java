@@ -3,6 +3,7 @@ package com.workable_sb.workable.models;
 import java.sql.Date;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -38,11 +39,11 @@ public class DatoEstudio {
     @Column(nullable = false)
     private String certificado;
 
-    @ManyToOne(optional = false)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn (name = "nivelEducativo_id", nullable = false, foreignKey = @ForeignKey(name = "FK_datosEstudios_nivelEducativo"))
     private NivelEducativo nivelEducativo;
 
-    @ManyToOne(optional = false)
-    @JoinColumn (name = "usuario_id", nullable = false, foreignKey = @ForeignKey(name = "FK_datoEstudio_usuario"))
-    private Aspirante usuario;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn (name = "aspirante_id", nullable = false, foreignKey = @ForeignKey(name = "FK_datoEstudio_aspirante"))
+    private Aspirante aspirante;
 }
