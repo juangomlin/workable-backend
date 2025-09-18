@@ -4,12 +4,12 @@ import org.springframework.stereotype.Component;
 
 
 import com.workable_sb.workable.dto.InfoPersonalDto;
+import com.workable_sb.workable.models.Aspirante;
 import com.workable_sb.workable.models.Genero;
 import com.workable_sb.workable.models.InfoPersonal;
-import com.workable_sb.workable.models.Usuario;
+import com.workable_sb.workable.repositories.AspiranteRepository;
 import com.workable_sb.workable.repositories.GeneroRepository;
 import com.workable_sb.workable.repositories.InfoPersonalRepository;
-import com.workable_sb.workable.repositories.UsuarioRepository;
 
 
 @Component
@@ -17,12 +17,12 @@ public class InfoPersonalMapperImple implements InfoPersonalMapper {
 
 
     private final GeneroRepository generoRepository;
-    private final UsuarioRepository usuarioRepository;
+    private final AspiranteRepository aspiranteRepository;
 
 
-    public InfoPersonalMapperImple(GeneroRepository generoRepository, UsuarioRepository usuarioRepository, InfoPersonalRepository infoPersonalRepository) {
+    public InfoPersonalMapperImple(GeneroRepository generoRepository, AspiranteRepository aspiranteRepository, InfoPersonalRepository infoPersonalRepository) {
         this.generoRepository = generoRepository;
-        this.usuarioRepository = usuarioRepository;
+        this.aspiranteRepository = aspiranteRepository;
     }
 
     @Override
@@ -38,8 +38,8 @@ public class InfoPersonalMapperImple implements InfoPersonalMapper {
         infoPersonal.setGenero(genero);
 
         
-        Usuario usuario = usuarioRepository.findById(infoPersonalDto.getUsuario_id()).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
-        infoPersonal.setUsuario(usuario);
+        Aspirante aspirante = aspiranteRepository.findById(infoPersonalDto.getUsuario_id()).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+        infoPersonal.setUsuario(aspirante);
 
         return infoPersonal;
 
@@ -57,6 +57,6 @@ public class InfoPersonalMapperImple implements InfoPersonalMapper {
             infoPersonalDto.getGenero().getNombre(),
             infoPersonalDto.getUsuario().getUsuario_id(),
             infoPersonalDto.getUsuario().getNombre()); 
-  }
+        }
 
 }
