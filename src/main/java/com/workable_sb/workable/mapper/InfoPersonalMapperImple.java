@@ -46,17 +46,17 @@ public class InfoPersonalMapperImple implements InfoPersonalMapper {
     }
 
     @Override
-    public InfoPersonalDto consultDto(InfoPersonal infoPersonalDto) {
+    public InfoPersonalDto consultDto(InfoPersonal entity) {
         return new InfoPersonalDto(
-            infoPersonalDto.getInfoPersonal_id(),
-            infoPersonalDto.getUbicacion(),
-            infoPersonalDto.getTelefono(),
-            infoPersonalDto.getFechaNacimiento(),
-            infoPersonalDto.getFotoPerfil(),
-            infoPersonalDto.getGenero().getGenero_id(),
-            infoPersonalDto.getGenero().getNombre(),
-            infoPersonalDto.getUsuario().getUsuario_id(),
-            infoPersonalDto.getUsuario().getNombre()); 
+            entity.getInfoPersonal_id(),
+            entity.getUbicacion(),
+            entity.getTelefono(),
+            entity.getFechaNacimiento(),
+            entity.getFotoPerfil(),
+            entity.getGenero().getGenero_id(),
+            entity.getGenero().getNombre(),
+            entity.getUsuario().getAspirante_id(),
+            entity.getUsuario().getNombre());
         }
 
 }
