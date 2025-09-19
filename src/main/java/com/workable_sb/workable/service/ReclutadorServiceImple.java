@@ -23,6 +23,7 @@ public class ReclutadorServiceImple implements ReclutadorService {
     public ReclutadorServiceImple(ReclutadorRepository reclutadorRepository,ReclutadorMapper reclutadorMapper, EmpresaRepository empresaRepository, AspiranteRepository aspiranteRepository, AspiranteRepository aspiranteRepository2) {
         this.reclutadorRepository = reclutadorRepository;
         this.reclutadorMapper = reclutadorMapper;
+     
     }
 
     @Override
