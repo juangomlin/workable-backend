@@ -28,7 +28,6 @@ public class DatoExperienciaDto {
   private String ubicacion;
 
   @NotNull(message = "el ID de usuario es obligatorio")
-  private Integer usr_id;
-
-  private String usr_nombre;
+  private Integer aspirante_id;
+  private String nombreAspirante;
 }

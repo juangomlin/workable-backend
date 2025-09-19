@@ -41,6 +41,6 @@ public class DatoExperiencia {
   private String ubicacion;
 
   @ManyToOne(optional = false)
-  @JoinColumn(name = "usuario_id", nullable = false, foreignKey = @ForeignKey(name = "FK_datoExpreiencia_Usuario"))
-  private Aspirante usuario;
+  @JoinColumn(name = "aspirante_id", nullable = false, foreignKey = @ForeignKey(name = "FK_datoExpreiencia_Usuario"))
+  private Aspirante aspirante;
 }

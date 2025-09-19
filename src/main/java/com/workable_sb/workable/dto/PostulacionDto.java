@@ -26,6 +26,6 @@ public class PostulacionDto {
   private String nombreOferta;
 
   @NotNull(message = "El id de usuario es obligatorio")
-  private Integer usuario_Id;
-  private String nombreUsario;
+  private Integer aspirante_id;
+  private String nombreAspirante;
 }
