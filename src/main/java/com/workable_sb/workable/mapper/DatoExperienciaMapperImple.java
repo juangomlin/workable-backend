@@ -30,9 +30,9 @@ public class DatoExperienciaMapperImple implements DatoExperienciaMapper {
         datoExperiencia.setUbicacion(datoExperienciaDto.getUbicacion());
 
         if (datoExperienciaDto.getUsr_id() != null) {
-            Aspirante usuario = aspiranteRepository.findById(datoExperienciaDto.getUsr_id())
+            Aspirante aspirante = aspiranteRepository.findById(datoExperienciaDto.getUsr_id())
                     .orElseThrow(() -> new EntityNotFoundException("Usuario no encontrado con ID: " + datoExperienciaDto.getUsr_id()));
-            datoExperiencia.setUsuario(usuario);
+            datoExperiencia.setUsuario(aspirante);
         } else {
             datoExperiencia.setUsuario(null);
         }
@@ -41,15 +41,15 @@ public class DatoExperienciaMapperImple implements DatoExperienciaMapper {
     }
 
     @Override
-    public DatoExperienciaDto consultDto(DatoExperiencia datoExperienciaDto) {
+    public DatoExperienciaDto consultDto(DatoExperiencia entity) {
     return new DatoExperienciaDto(
-            datoExperienciaDto.getExperiencia_id(),
-            datoExperienciaDto.getCargo(),
-            datoExperienciaDto.getEmpresa(),
-            datoExperienciaDto.getFechaInicio(),
-            datoExperienciaDto.getFechaFin(),
-            datoExperienciaDto.getUbicacion(),
-            datoExperienciaDto.getUsuario().getUsuario_id(),
-            datoExperienciaDto.getUsuario().getNombre());
+            entity.getExperiencia_id(),
+            entity.getCargo(),
+            entity.getEmpresa(),
+            entity.getFechaInicio(),
+            entity.getFechaFin(),
+            entity.getUbicacion(),
+            entity.getUsuario().getAspirante_id(),
+            entity.getUsuario().getNombre());
     }
 }
