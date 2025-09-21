@@ -41,7 +41,7 @@ public class Aspirante {
   private String ubicacion;
   
   @Column(nullable = false)
-  private Integer telefono;
+  private Long telefono;
 
   private Date fecha_Nacimiento;
 

@@ -22,7 +22,7 @@ public class AspiranteReadDto {
 
   private String ubi;
 
-  private Integer tel;
+  private Long tel;
 
   private Date feNa;
 
