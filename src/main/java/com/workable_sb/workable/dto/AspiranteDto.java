@@ -14,8 +14,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AspiranteDto {
-  private Integer id;
-
   @NotBlank
   private String nom;
 
@@ -29,7 +27,7 @@ public class AspiranteDto {
   private String ubi;
 
   @NotNull
-  private Integer tel;
+  private Long tel;
 
   @NotNull
   private Date feNa;

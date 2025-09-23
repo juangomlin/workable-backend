@@ -41,8 +41,4 @@ public class Reclutador {
     foreignKey = @jakarta.persistence.ForeignKey(name = "FK_reclutador_empresa"))
     private Empresa empresa;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "rol_id", nullable = false,
-    foreignKey = @jakarta.persistence.ForeignKey(name = "FK_reclutador_rol"))
-    private Rol rol;
 }

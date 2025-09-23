@@ -28,8 +28,4 @@ public class ReclutadorDto {
     @NotNull(message = "el id de empresa es obligatorio")
     private Integer empresa_id;
     private String empresa_nom;
-
-    @NotNull(message = "el id de rol es obligatorio")
-    private Integer rol_id;
-    private String rol_nom;
 }

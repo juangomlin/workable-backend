@@ -39,7 +39,7 @@ public class Valoracion {
 	@JoinColumn(name = "empresa_id", nullable = false, foreignKey = @jakarta.persistence.ForeignKey(name = "FK_empresa_valoracion"))
 	private Empresa empresa;
 
-	@ManyToOne(optional = false, fetch = FetchType.LAZY)
-	@JoinColumn(name = "usuario_id", nullable = false, foreignKey = @jakarta.persistence.ForeignKey(name = "FK_usuario_valoracion"))
-	private Aspirante usuario;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "aspirante_id", nullable = false, foreignKey = @jakarta.persistence.ForeignKey(name = "FK_aspirante_valoracion"))
+	private Aspirante aspirante;
 }

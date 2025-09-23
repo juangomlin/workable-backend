@@ -3,10 +3,11 @@ package com.workable_sb.workable.service;
 import java.util.List;
 
 import com.workable_sb.workable.dto.EmpresaDto;
+import com.workable_sb.workable.dto.EmpresaReadDto;
 
 public interface EmpresaService {
-  EmpresaDto guardar(EmpresaDto empresaDto);
-  EmpresaDto listId(Integer id);
-  List<EmpresaDto> listAll();
+  EmpresaReadDto guardar(EmpresaDto empresaDto);
+  EmpresaReadDto listId(Integer id);
+  List<EmpresaReadDto> listAll();
   void eliminar(Integer id);
 }

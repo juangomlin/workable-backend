@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
 import com.workable_sb.workable.dto.EmpresaDto;
+import com.workable_sb.workable.dto.EmpresaReadDto;
 import com.workable_sb.workable.mapper.EmpresaMapper;
 import com.workable_sb.workable.models.Empresa;
 import com.workable_sb.workable.repositories.EmpresaRepository;
@@ -18,27 +19,26 @@ public class EmpresaServiceImple implements EmpresaService{
   private final EmpresaRepository empresaRepository;
   private final EmpresaMapper empresaMapper;
 
-  public EmpresaServiceImple(EmpresaRepository empresaRepository, EmpresaMapper
-  empresaMapper) {
+  public EmpresaServiceImple(EmpresaRepository empresaRepository, EmpresaMapper empresaMapper) {
     this.empresaMapper = empresaMapper;
     this.empresaRepository = empresaRepository;
   }
 
   @Override
-  public EmpresaDto guardar(EmpresaDto dto) {
-    Empresa empresa = empresaMapper.consultEntity(dto);
+  public EmpresaReadDto guardar(EmpresaDto empresaDto) {
+    Empresa empresa = empresaMapper.consultEntity(empresaDto);
     Empresa guardado = empresaRepository.save(empresa);
-    return empresaMapper.consultDto(guardado);
+    return empresaMapper.consultReadDto(guardado);
   }
 
   @Override
-  public EmpresaDto listId(Integer id) {
-    return empresaRepository.findById(id).map(empresaMapper::consultDto).orElseThrow(() -> new EntityNotFoundException("empresa no encontrada"));
+  public EmpresaReadDto listId(Integer id) {
+    return empresaRepository.findById(id).map(empresaMapper::consultReadDto).orElseThrow(() -> new EntityNotFoundException("empresa no encontrada"));
   }
 
   @Override
-  public List<EmpresaDto> listAll() {
-    return empresaRepository.findAll().stream().map(empresaMapper::consultDto).collect(Collectors.toList());
+  public List<EmpresaReadDto> listAll() {
+    return empresaRepository.findAll().stream().map(empresaMapper::consultReadDto).collect(Collectors.toList());
   }
 
   @Override

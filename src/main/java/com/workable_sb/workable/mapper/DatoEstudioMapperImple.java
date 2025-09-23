@@ -35,8 +35,8 @@ public class DatoEstudioMapperImple implements DatoEstudioMapper {
         NivelEducativo nivelEducativo = nivelEducativoRepository.findById(datoEstudioDto.getNivEdu_id()).orElseThrow(() -> new EntityNotFoundException("Nivel educativo no encontrado"));
         datoEstudio.setNivelEducativo(nivelEducativo);
 
-        Aspirante aspirante = aspiranteRepository.findById(datoEstudioDto.getUsr_id()).orElseThrow(() -> new EntityNotFoundException("Usuario no encontrado"));
-        datoEstudio.setUsuario(aspirante);
+        Aspirante aspirante = aspiranteRepository.findById(datoEstudioDto.getAsp_id()).orElseThrow(() -> new EntityNotFoundException("Usuario no encontrado"));
+        datoEstudio.setAspirante(aspirante);
 
         return datoEstudio;
     }
@@ -52,7 +52,7 @@ public class DatoEstudioMapperImple implements DatoEstudioMapper {
             entity.getInstitucion(),
             entity.getNivelEducativo().getNivelEducativo_id(),
             entity.getNivelEducativo().getNombre(),
-            entity.getUsuario().getUsuario_id()
+            entity.getAspirante().getAspirante_id()
         );
     }
 }

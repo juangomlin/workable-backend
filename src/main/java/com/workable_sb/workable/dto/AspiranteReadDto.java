@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-
 public class AspiranteReadDto {
 
   private Integer id;
@@ -22,7 +21,7 @@ public class AspiranteReadDto {
 
   private String ubi;
 
-  private Integer tel;
+  private Long tel;
 
   private Date feNa;
 

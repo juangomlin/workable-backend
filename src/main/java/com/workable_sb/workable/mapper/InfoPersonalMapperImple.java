@@ -39,24 +39,24 @@ public class InfoPersonalMapperImple implements InfoPersonalMapper {
 
         
         Aspirante aspirante = aspiranteRepository.findById(infoPersonalDto.getUsuario_id()).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
-        infoPersonal.setUsuario(aspirante);
+        infoPersonal.setAspirante(aspirante);
 
         return infoPersonal;
 
     }
 
     @Override
-    public InfoPersonalDto consultDto(InfoPersonal infoPersonalDto) {
+    public InfoPersonalDto consultDto(InfoPersonal entity) {
         return new InfoPersonalDto(
-            infoPersonalDto.getInfoPersonal_id(),
-            infoPersonalDto.getUbicacion(),
-            infoPersonalDto.getTelefono(),
-            infoPersonalDto.getFechaNacimiento(),
-            infoPersonalDto.getFotoPerfil(),
-            infoPersonalDto.getGenero().getGenero_id(),
-            infoPersonalDto.getGenero().getNombre(),
-            infoPersonalDto.getUsuario().getUsuario_id(),
-            infoPersonalDto.getUsuario().getNombre()); 
+            entity.getInfoPersonal_id(),
+            entity.getUbicacion(),
+            entity.getTelefono(),
+            entity.getFechaNacimiento(),
+            entity.getFotoPerfil(),
+            entity.getGenero().getGenero_id(),
+            entity.getGenero().getNombre(),
+            entity.getAspirante().getAspirante_id(),
+            entity.getAspirante().getNombre());
         }
 
 }

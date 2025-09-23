@@ -1,3 +1,4 @@
+
 package com.workable_sb.workable.models;
 
 import java.util.Date;
@@ -40,7 +41,7 @@ public class Aspirante {
   private String ubicacion;
   
   @Column(nullable = false)
-  private Integer telefono;
+  private Long telefono;
 
   private Date fecha_Nacimiento;
 
