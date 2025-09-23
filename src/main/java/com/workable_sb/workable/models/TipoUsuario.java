@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Entity
 public class TipoUsuario {
   @Id
-  private Integer tipoUsuario_id;
+  private Short tipoUsuario_id;
 
   private String nombre;
 }
