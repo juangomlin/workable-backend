@@ -15,11 +15,11 @@ import jakarta.persistence.EntityNotFoundException;
 public class ValoracionMapperImple implements ValoracionMapper {
 
   private final EmpresaRepository empresaRepository;
-  private final AspiranteRepository usuarioRepository;
+  private final AspiranteRepository aspiranteRepository;
 
-  public ValoracionMapperImple(EmpresaRepository empresaRepository, AspiranteRepository usuarioRepository){
+  public ValoracionMapperImple(EmpresaRepository empresaRepository, AspiranteRepository aspiranteRepository){
     this.empresaRepository = empresaRepository;
-    this.usuarioRepository = usuarioRepository;
+    this.aspiranteRepository = aspiranteRepository;
   }
 
   @Override
@@ -34,9 +34,9 @@ public class ValoracionMapperImple implements ValoracionMapper {
   .orElseThrow(() -> new EntityNotFoundException("Empresa no encontrada"));
   valoracion.setEmpresa(empresa);
 
-  Aspirante usuario = usuarioRepository.findById(valoracionDto.getUsuario_id())
-  .orElseThrow(() -> new EntityNotFoundException("Usuario no encontrado"));
-  valoracion.setUsuario(usuario);
+  Aspirante aspirante = aspiranteRepository.findById(valoracionDto.getAspirante_id())
+  .orElseThrow(() -> new EntityNotFoundException("Aspirante no encontrado"));
+  valoracion.setAspirante(aspirante);;
 
   return valoracion;
   }
@@ -50,7 +50,8 @@ public class ValoracionMapperImple implements ValoracionMapper {
     entity.getFecha_valoracion(),
     entity.getEmpresa().getEmpresa_id(),
     entity.getEmpresa().getNombre(),
-    entity.getUsuario().getUsuario_id(),
-    entity.getUsuario().getNombre());
+    entity.getAspirante().getAspirante_id(),
+    entity.getAspirante().getNombre()
+    );
   }
 }

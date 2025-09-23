@@ -26,8 +26,8 @@ public class AspiranteServiceImple implements AspiranteService{
 
   @Override
   public AspiranteReadDto guardar(AspiranteDto aspiranteDto){
-    Aspirante usuario = aspiranteMapper.consult(aspiranteDto);
-    Aspirante guardado = aspiranteRepository.save(usuario);
+    Aspirante aspirante = aspiranteMapper.consult(aspiranteDto);
+    Aspirante guardado = aspiranteRepository.save(aspirante);
     return aspiranteMapper.consultReadDto(guardado);
   }
 

@@ -18,13 +18,12 @@ public class PostulacionMapperImple implements PostulacionMapper{
 
   private final EstadoRepository estadoRepository;
   private final OfertaRepository ofertaRepository;
-  private final AspiranteRepository usuarioRepository;
+  private final AspiranteRepository aspiranteRepository;
 
-  public PostulacionMapperImple(EstadoRepository estadoRepository, OfertaRepository ofertaRepository,
-  AspiranteRepository usuarioRepository){
+  public PostulacionMapperImple(EstadoRepository estadoRepository, OfertaRepository ofertaRepository, AspiranteRepository aspiranteRepository){
     this.estadoRepository = estadoRepository;
     this.ofertaRepository = ofertaRepository;
-    this.usuarioRepository = usuarioRepository;
+    this.aspiranteRepository = aspiranteRepository;
   }
 
   @Override
@@ -42,9 +41,9 @@ public class PostulacionMapperImple implements PostulacionMapper{
     .orElseThrow(() -> new EntityNotFoundException("Oferta no encontrada"));
     postulacion.setOferta(oferta);
 
-    Aspirante usuario = usuarioRepository.findById(postulacionDto.getUsuario_Id())
+    Aspirante aspirante = aspiranteRepository.findById(postulacionDto.getAspirante_id())
     .orElseThrow(() -> new EntityNotFoundException("Usuario no encontrado"));
-    postulacion.setUsuario(usuario);
+    postulacion.setAspirante(aspirante);
 
     return postulacion;
 
@@ -59,8 +58,8 @@ public class PostulacionMapperImple implements PostulacionMapper{
     entity.getEstado().getNombre(),
     entity.getOferta().getOferta_id(),
     entity.getOferta().getTitulo(),
-    entity.getUsuario().getUsuario_id(),
-    entity.getUsuario().getNombre()
+    entity.getAspirante().getAspirante_id(),
+    entity.getAspirante().getNombre()
     );
   }
 

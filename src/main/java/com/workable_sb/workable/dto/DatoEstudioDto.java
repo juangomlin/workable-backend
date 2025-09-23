@@ -32,5 +32,5 @@ public class DatoEstudioDto {
   private String nivEdu_nom;
 
   @NotNull(message = "el id de usuario es obligatorio")
-  private Integer usr_id;
+  private Integer asp_id;
 }

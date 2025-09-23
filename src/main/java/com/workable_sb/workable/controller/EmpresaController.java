@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.workable_sb.workable.dto.EmpresaDto;
+import com.workable_sb.workable.dto.EmpresaReadDto;
 import com.workable_sb.workable.models.Empresa;
 import com.workable_sb.workable.repositories.EmpresaRepository;
 import com.workable_sb.workable.service.EmpresaService;
@@ -27,7 +28,6 @@ public class EmpresaController {
 
   @Autowired
   private EmpresaRepository empresaRepo;
-
   private EmpresaService empresaServ;
 
   public EmpresaController(EmpresaService empresaService) {
@@ -41,20 +41,20 @@ public class EmpresaController {
   
 
   @PostMapping
-  public ResponseEntity<EmpresaDto> guardar(@Valid @RequestBody EmpresaDto dto) {
-      EmpresaDto guardado = empresaServ.guardar(dto);
+  public ResponseEntity<EmpresaReadDto> guardar(@Valid @RequestBody EmpresaDto dto) {
+      EmpresaReadDto guardado = empresaServ.guardar(dto);
       return ResponseEntity.ok(guardado);
   }
 
   @GetMapping("/{id}")
-  public ResponseEntity<EmpresaDto> listId(@PathVariable Integer id) {
-      EmpresaDto dto = empresaServ.listId(id);
+  public ResponseEntity<EmpresaReadDto> listId(@PathVariable Integer id) {
+      EmpresaReadDto dto = empresaServ.listId(id);
       return ResponseEntity.ok(dto);
   }
 
   @GetMapping
-  public ResponseEntity<List<EmpresaDto>> listAllDto() {
-      List<EmpresaDto> empresas = empresaServ.listAll();
+  public ResponseEntity<List<EmpresaReadDto>> listAllDto() {
+      List<EmpresaReadDto> empresas = empresaServ.listAll();
       return ResponseEntity.ok(empresas);
     }
   
@@ -63,6 +63,4 @@ public class EmpresaController {
     empresaServ.eliminar(id);
     return ResponseEntity.noContent().build();
   }
-  
-  
 }

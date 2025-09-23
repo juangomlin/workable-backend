@@ -29,7 +29,7 @@ public class ValoracionDto {
   private String nombreEmpresa;
 
   @NotNull(message = "El id de usuario debe ser obligatorio")
-  private Integer usuario_id;
-  private String nombreUsuario;
+  private Integer aspirante_id;
+  private String nombreAspirante;
 
 }

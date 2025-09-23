@@ -15,8 +15,8 @@ public class DatoExperienciaMapperImple implements DatoExperienciaMapper {
 
     private final AspiranteRepository aspiranteRepository;
 
-    public DatoExperienciaMapperImple(AspiranteRepository usuarioRepository) {
-        this.aspiranteRepository = usuarioRepository;
+    public DatoExperienciaMapperImple(AspiranteRepository aspiranteRepository) {
+        this.aspiranteRepository = aspiranteRepository;
     }
 
     @Override
@@ -29,12 +29,12 @@ public class DatoExperienciaMapperImple implements DatoExperienciaMapper {
         datoExperiencia.setFechaFin(datoExperienciaDto.getFechaFi());
         datoExperiencia.setUbicacion(datoExperienciaDto.getUbicacion());
 
-        if (datoExperienciaDto.getUsr_id() != null) {
-            Aspirante aspirante = aspiranteRepository.findById(datoExperienciaDto.getUsr_id())
-                    .orElseThrow(() -> new EntityNotFoundException("Usuario no encontrado con ID: " + datoExperienciaDto.getUsr_id()));
-            datoExperiencia.setUsuario(aspirante);
+        if (datoExperienciaDto.getAspirante_id() != null) {
+            Aspirante aspirante = aspiranteRepository.findById(datoExperienciaDto.getAspirante_id())
+            .orElseThrow(() -> new EntityNotFoundException("Aspirante no encontrado con ID: " + datoExperienciaDto.getAspirante_id()));
+            datoExperiencia.setAspirante(aspirante);
         } else {
-            datoExperiencia.setUsuario(null);
+            datoExperiencia.setAspirante(null);
         }
 
         return datoExperiencia;
@@ -49,7 +49,7 @@ public class DatoExperienciaMapperImple implements DatoExperienciaMapper {
             entity.getFechaInicio(),
             entity.getFechaFin(),
             entity.getUbicacion(),
-            entity.getUsuario().getAspirante_id(),
-            entity.getUsuario().getNombre());
+            entity.getAspirante().getAspirante_id(),
+            entity.getAspirante().getNombre());
     }
 }

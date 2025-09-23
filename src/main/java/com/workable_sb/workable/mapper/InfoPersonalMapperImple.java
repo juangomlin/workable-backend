@@ -39,7 +39,7 @@ public class InfoPersonalMapperImple implements InfoPersonalMapper {
 
         
         Aspirante aspirante = aspiranteRepository.findById(infoPersonalDto.getUsuario_id()).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
-        infoPersonal.setUsuario(aspirante);
+        infoPersonal.setAspirante(aspirante);
 
         return infoPersonal;
 
@@ -55,8 +55,8 @@ public class InfoPersonalMapperImple implements InfoPersonalMapper {
             entity.getFotoPerfil(),
             entity.getGenero().getGenero_id(),
             entity.getGenero().getNombre(),
-            entity.getUsuario().getAspirante_id(),
-            entity.getUsuario().getNombre());
+            entity.getAspirante().getAspirante_id(),
+            entity.getAspirante().getNombre());
         }
 
 }
