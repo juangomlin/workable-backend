@@ -6,23 +6,16 @@ import com.workable_sb.workable.dto.FeedbackDto;
 import com.workable_sb.workable.dto.FeedbackReadDto;
 import com.workable_sb.workable.models.Feedback;
 import com.workable_sb.workable.models.TipoUsuario;
-import com.workable_sb.workable.repositories.FeedbackRepository;
 import com.workable_sb.workable.repositories.TipoUsuarioRepository;
 
 import jakarta.persistence.EntityNotFoundException;
 
 @Component
 public class FeedbackMapperImple implements FeedbackMapper{
-  private final FeedbackDto feedbackDto;
-  private final FeedbackReadDto feedbackReadDto;
-  private final FeedbackRepository feedbackRepository;
+
   private final TipoUsuarioRepository tipoUsuarioRepository;
 
-  public FeedbackMapperImple(FeedbackDto feedbackDto, FeedbackReadDto feedbackReadDto, FeedbackRepository feedbackRepository, TipoUsuarioRepository
-  tipoUsuarioRepository) {
-    this.feedbackDto = feedbackDto;
-    this.feedbackReadDto = feedbackReadDto;
-    this.feedbackRepository = feedbackRepository;
+  public FeedbackMapperImple(TipoUsuarioRepository tipoUsuarioRepository) {
     this.tipoUsuarioRepository = tipoUsuarioRepository;
   }
 
