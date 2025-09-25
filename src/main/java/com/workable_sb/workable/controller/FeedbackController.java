@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
@@ -33,7 +34,7 @@ public class FeedbackController {
   
 
   @GetMapping("/{id}")
-  public String getMethodName(@RequestParam String param) {
+  public ResponseEntity<FeedbackReadDto> listId(@PathVariable Integer) {
       return new String();
   }
   
