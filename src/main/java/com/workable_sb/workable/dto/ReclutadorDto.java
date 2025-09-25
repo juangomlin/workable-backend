@@ -24,6 +24,7 @@ public class ReclutadorDto {
 
     @NotNull
     private Date fecharegistro;
+    // borrar
 
     @NotNull(message = "el id de empresa es obligatorio")
     private Integer empresa_id;
