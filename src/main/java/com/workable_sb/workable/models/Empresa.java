@@ -9,6 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.PrePersist;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -38,8 +39,6 @@ public class Empresa {
     @Column(nullable = false)
     private String correoCorporativo;
     private float puntuacion;
-
-    @Column(nullable = false)
     private LocalDate fechaCreacion;
 
     @ManyToOne(optional  = false)
@@ -49,4 +48,11 @@ public class Empresa {
     @ManyToOne(optional = false)
     @JoinColumn(name = "municipio_id", nullable = false, foreignKey = @ForeignKey(name = "FK_empresa_municipio"))
     private Municipio municipio;
+
+    @PrePersist
+    protected void setFechaCreacion() {
+        if (this.fechaCreacion == null) {
+            this.fechaCreacion = LocalDate.now();
+        }
+    }
 }

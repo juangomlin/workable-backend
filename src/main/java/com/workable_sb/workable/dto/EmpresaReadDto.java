@@ -1,5 +1,7 @@
 package com.workable_sb.workable.dto;
 
+import java.time.LocalDate;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,17 +10,17 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class EmpresaReadDto {
-  private Integer empr_id;
-
+  private Long id;
   private String nom;
-
   private String ubi;
-
   private String desc;
+  private Integer numTrab;
+  private String correoCorp;
+  private float punt;
+  private LocalDate fechaCrea;
 
-  private Integer cate_id;
-  private String nom_cat;
-
+  private Integer cat_id;
+  private String nomCat;
   private Integer munici_id;
-  private String nom_munici;
+  private String nomMunici;
 }

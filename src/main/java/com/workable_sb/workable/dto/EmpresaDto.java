@@ -22,8 +22,8 @@ public class EmpresaDto {
   @NotNull
   private Integer numTrab;
 
-  @NotNull
-  private String correoCorporativo;
+  @NotBlank
+  private String correoCorp;
 
   @NotNull(message = "la categoria es obligatoria")
   private Integer cate_id;

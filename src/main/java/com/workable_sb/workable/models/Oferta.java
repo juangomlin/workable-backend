@@ -34,8 +34,9 @@ public class Oferta {
 
   @Column(nullable = false, length = 100)
   private String ubicacion;
-
   private Date fechaPublicacion;
+
+  @Column(nullable = false)
   private Date fechaLimite;
 
   @ManyToOne(optional = false)
