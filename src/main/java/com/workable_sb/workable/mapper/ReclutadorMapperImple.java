@@ -2,6 +2,7 @@ package com.workable_sb.workable.mapper;
 
 import org.springframework.stereotype.Component;
 import com.workable_sb.workable.dto.ReclutadorDto;
+import com.workable_sb.workable.dto.ReclutadorReadDto;
 import com.workable_sb.workable.models.Empresa;
 import com.workable_sb.workable.models.Reclutador;
 import com.workable_sb.workable.repositories.EmpresaRepository;
@@ -19,29 +20,28 @@ public class ReclutadorMapperImple implements ReclutadorMapper {
 
     @Override
     public Reclutador consult(ReclutadorDto reclutadorDto){
-        
-        Reclutador reclutador = new Reclutador();
-        reclutador.setReclutador_id(reclutadorDto.getReclutador_id());
-        reclutador.setNombre(reclutadorDto.getNom());
-        reclutador.setClave(reclutadorDto.getClave());
-        reclutador.setCorreo(reclutadorDto.getCorreo());
-        reclutador.setFecharegistro(reclutadorDto.getFecharegistro());
+        Reclutador entity = new Reclutador();
+
+        entity.setNombre(reclutadorDto.getNom());
+        entity.setClave(reclutadorDto.getClave());
+        entity.setCorreo(reclutadorDto.getCorr());
+        entity.setTelefono(reclutadorDto.getTel());
         
         Empresa empresa = empresaRepository.findById(reclutadorDto.getEmpresa_id()).orElseThrow(() -> new EntityNotFoundException("Empresa no encontrada"));
-        reclutador.setEmpresa(empresa);
+        entity.setEmpresa(empresa);
 
-        return reclutador;
+        return entity;
     }
 
     @Override
-    public ReclutadorDto consultDto(Reclutador reclutador){
-        return new ReclutadorDto(
+    public ReclutadorReadDto consultReadDto(Reclutador reclutador){
+        return new ReclutadorReadDto(
             reclutador.getReclutador_id(),
             reclutador.getNombre(),
             reclutador.getClave(),
             reclutador.getCorreo(),
-            reclutador.getFecharegistro(),
-            reclutador.getEmpresa().getEmpresa_id(),
+            reclutador.getTelefono(),
+            reclutador.getEmpresa().getNit_id(),
             reclutador.getEmpresa().getNombre()
         );
     }

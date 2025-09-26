@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
 import com.workable_sb.workable.dto.OfertaDto;
+import com.workable_sb.workable.dto.OfertaReadDto;
 import com.workable_sb.workable.mapper.OfertaMapper;
 import com.workable_sb.workable.models.Oferta;
 import com.workable_sb.workable.repositories.OfertaRepository;
@@ -24,24 +25,24 @@ public class OfertaServiceImple implements OfertaService{
     }
 
     @Override
-    public OfertaDto guardar(OfertaDto ofertaDto){
+    public OfertaReadDto guardar(OfertaDto ofertaDto){
         Oferta oferta = ofertaMapper.consult(ofertaDto);
         Oferta guardado = ofertaRepository.save(oferta);
-        return ofertaMapper.consulDto(guardado);
+        return ofertaMapper.consulReadDto(guardado);
     }
 
     @Override
-    public OfertaDto ListId(Integer id){
+    public OfertaReadDto ListId(Integer id){
         return ofertaRepository.findById(id)
-        .map(ofertaMapper:: consulDto)
+        .map(ofertaMapper:: consulReadDto)
         .orElseThrow(() -> new EntityNotFoundException("Oferta no encontrada"));
     }
 
     @Override
-    public List<OfertaDto> listarAll(){
+    public List<OfertaReadDto> listarAll(){
         return ofertaRepository.findAll()
         .stream()
-        .map(ofertaMapper:: consulDto)
+        .map(ofertaMapper:: consulReadDto)
         .collect(Collectors.toList());
     }
 
@@ -49,5 +50,4 @@ public class OfertaServiceImple implements OfertaService{
     public void eliminar(Integer id){
         ofertaRepository.deleteById(id);
     }
-
 }

@@ -1,6 +1,6 @@
 package com.workable_sb.workable.dto;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -21,23 +21,17 @@ public class OfertaDto {
 
     @NotBlank
     private String ubi;
+    private LocalDate fechaPu;
 
-    private Date fechaPu;
-    private Date fechaLi;
+    @NotNull
+    private LocalDate fechaLi;
 
     @NotNull(message = "La modalidad debe ser obligatoria")
     private Integer modalidad_id;
 
-    private String nombreModalidad;
-
     @NotNull(message = "El tipo de contrato debe ser obligatorio")
     private Integer tipoContrato_id;
 
-    private String nombreTipoContrato;
-
     @NotNull(message = "La empresa debe ser obligatoria")
-    private Integer empresa_id;
-    
-    private String nombreEmpresa;
-
+    private Long empresa_id;
 }

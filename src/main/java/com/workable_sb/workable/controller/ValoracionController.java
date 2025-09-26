@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.workable_sb.workable.dto.ValoracionDto;
+import com.workable_sb.workable.dto.ValoracionReadDto;
 import com.workable_sb.workable.service.ValoracionService;
 
 import jakarta.validation.Valid;
@@ -29,20 +30,20 @@ public class ValoracionController {
   }
 
   @PostMapping
-  public ResponseEntity<ValoracionDto> crear(@Valid @RequestBody ValoracionDto valoracionDto) {
-    ValoracionDto creado = valoracionService.crear(valoracionDto);
+  public ResponseEntity<ValoracionReadDto> crear(@Valid @RequestBody ValoracionDto valoracionDto) {
+    ValoracionReadDto creado = valoracionService.crear(valoracionDto);
     return ResponseEntity.ok(creado);
   }
 
   @GetMapping("/{id}")
-  public ResponseEntity<ValoracionDto> listarId(@PathVariable Integer id) {
-    ValoracionDto valoracionDto =  valoracionService.listarId(id);
+  public ResponseEntity<ValoracionReadDto> listarId(@PathVariable Integer id) {
+    ValoracionReadDto valoracionDto =  valoracionService.listarId(id);
       return ResponseEntity.ok(valoracionDto);
   }
 
   @GetMapping
-  public ResponseEntity<List<ValoracionDto>> listarTodo(){
-    List<ValoracionDto> valoraciones = valoracionService.listarAll();
+  public ResponseEntity<List<ValoracionReadDto>> listarTodo(){
+    List<ValoracionReadDto> valoraciones = valoracionService.listarAll();
       return ResponseEntity.ok(valoraciones);
   }
 

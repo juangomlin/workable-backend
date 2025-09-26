@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
 import com.workable_sb.workable.dto.ReclutadorDto;
+import com.workable_sb.workable.dto.ReclutadorReadDto;
 import com.workable_sb.workable.mapper.ReclutadorMapper;
 import com.workable_sb.workable.models.Reclutador;
 import com.workable_sb.workable.repositories.AspiranteRepository;
@@ -23,28 +24,27 @@ public class ReclutadorServiceImple implements ReclutadorService {
     public ReclutadorServiceImple(ReclutadorRepository reclutadorRepository,ReclutadorMapper reclutadorMapper, EmpresaRepository empresaRepository, AspiranteRepository aspiranteRepository, AspiranteRepository aspiranteRepository2) {
         this.reclutadorRepository = reclutadorRepository;
         this.reclutadorMapper = reclutadorMapper;
-     
     }
 
     @Override
-    public ReclutadorDto crearyupdate(ReclutadorDto reclutadorDto) {
+    public ReclutadorReadDto crearyupdate(ReclutadorDto reclutadorDto) {
         Reclutador reclutador = reclutadorMapper.consult(reclutadorDto);
         Reclutador guardado = reclutadorRepository.save(reclutador);
-        return reclutadorMapper.consultDto(guardado);
+        return reclutadorMapper.consultReadDto(guardado);
     }
 
     @Override
-    public ReclutadorDto buscarPorId(Integer reclutador_id) {
+    public ReclutadorReadDto buscarPorId(Integer reclutador_id) {
         return reclutadorRepository.findById(reclutador_id)
-            .map(reclutadorMapper::consultDto)
+            .map(reclutadorMapper::consultReadDto)
             .orElseThrow(() -> new EntityNotFoundException("Reclutador no encontrado"));
     }
 
     @Override
-    public List<ReclutadorDto> listarTodos() {
+    public List<ReclutadorReadDto> listarTodos() {
         return reclutadorRepository.findAll()
             .stream()
-            .map(reclutadorMapper::consultDto)
+            .map(reclutadorMapper::consultReadDto)
             .collect(Collectors.toList());
     }
 

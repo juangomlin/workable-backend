@@ -47,7 +47,7 @@ public class EmpresaController {
   }
 
   @GetMapping("/{id}")
-  public ResponseEntity<EmpresaReadDto> listId(@PathVariable Integer id) {
+  public ResponseEntity<EmpresaReadDto> listId(@PathVariable Long id) {
       EmpresaReadDto dto = empresaServ.listId(id);
       return ResponseEntity.ok(dto);
   }
@@ -59,7 +59,7 @@ public class EmpresaController {
     }
   
   @DeleteMapping("/{id}")
-  public ResponseEntity<Void> eliminar(@PathVariable Integer id) {
+  public ResponseEntity<Void> eliminar(@PathVariable Long id) {
     empresaServ.eliminar(id);
     return ResponseEntity.noContent().build();
   }

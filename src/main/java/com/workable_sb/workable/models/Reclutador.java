@@ -1,7 +1,5 @@
 package com.workable_sb.workable.models;
 
-import java.sql.Date;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,14 +25,14 @@ public class Reclutador {
     @Column(nullable = false, length = 20)
     private String nombre;
 
-    @Column(nullable = false, length = 255)
+    @Column(nullable = false)
     private String clave;
 
-    @Column(nullable = false, length = 255)
+    @Column(nullable = false)
     private String correo;
 
     @Column(nullable = false)
-    private Date fecharegistro;
+    private Long telefono;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "empresa_id", nullable = false,

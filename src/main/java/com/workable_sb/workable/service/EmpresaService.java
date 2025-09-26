@@ -7,7 +7,7 @@ import com.workable_sb.workable.dto.EmpresaReadDto;
 
 public interface EmpresaService {
   EmpresaReadDto guardar(EmpresaDto empresaDto);
-  EmpresaReadDto listId(Integer id);
+  EmpresaReadDto listId(Long id);
   List<EmpresaReadDto> listAll();
-  void eliminar(Integer id);
+  void eliminar(Long id);
 }

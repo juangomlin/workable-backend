@@ -1,7 +1,7 @@
 package com.workable_sb.workable.models;
 
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Table(name = "valoracion")
 public class Valoracion {
-  @Id
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer valoracion_id;
 
@@ -31,11 +31,9 @@ public class Valoracion {
 
 	@Column(nullable = false)
 	private Float puntuacion;
+	private LocalDate fecha_valoracion;
 
-	@Column(nullable = false)
-	private Date fecha_valoracion;
-
-	@ManyToOne(optional = false)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "empresa_id", nullable = false, foreignKey = @jakarta.persistence.ForeignKey(name = "FK_empresa_valoracion"))
 	private Empresa empresa;
 

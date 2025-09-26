@@ -11,7 +11,6 @@ import com.workable_sb.workable.repositories.AspiranteRepository;
 import com.workable_sb.workable.repositories.DiscapacidadRepository;
 
 import jakarta.persistence.EntityNotFoundException;
-import jakarta.validation.constraints.Null;
 
 @Component
 public class AspiranteDiscapMapperImple implements AspiranteDiscapMapper{
