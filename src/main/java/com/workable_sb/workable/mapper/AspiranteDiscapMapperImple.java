@@ -2,7 +2,9 @@ package com.workable_sb.workable.mapper;
 
 import org.springframework.stereotype.Component;
 
+import com.workable_sb.workable.dto.AspiranteAsignadoDto;
 import com.workable_sb.workable.dto.AspiranteDiscapacidadDto;
+import com.workable_sb.workable.dto.DiscapacidadAsignadaDto;
 import com.workable_sb.workable.models.Aspirante;
 import com.workable_sb.workable.models.AspiranteDiscapacidad;
 import com.workable_sb.workable.models.AspiranteDiscapacidadId;
@@ -35,12 +37,12 @@ public class AspiranteDiscapMapperImple implements AspiranteDiscapMapper{
 
         AspiranteDiscapacidadId id = new AspiranteDiscapacidadId(dto.getAspi_id(), dto.getDisc_id());
 
-        AspiranteDiscapacidad relacion = new AspiranteDiscapacidad();
-        relacion.setId(id);
-        relacion.setAspirante(aspirante);
-        relacion.setDiscapacidad(discapacidad);
+        AspiranteDiscapacidad aspiranteDiscapacidad = new AspiranteDiscapacidad();
+        aspiranteDiscapacidad.setId(id);
+        aspiranteDiscapacidad.setAspirante(aspirante);
+        aspiranteDiscapacidad.setDiscapacidad(discapacidad);
 
-        return relacion;
+        return aspiranteDiscapacidad;
     }
 
     @Override
@@ -48,8 +50,26 @@ public class AspiranteDiscapMapperImple implements AspiranteDiscapMapper{
         AspiranteDiscapacidadDto dto = new AspiranteDiscapacidadDto();
         dto.setAspi_id(entity.getAspirante().getAspirante_id());
         dto.setNom_aspi(entity.getAspirante().getNombre());
-        dto.setNom_dis(entity.getDiscapacidad().getNombre());
         dto.setDisc_id(entity.getDiscapacidad().getDiscapacidad_id());
+        dto.setNom_dis(entity.getDiscapacidad().getNombre());
+
+        return dto;
+    }
+
+      @Override
+    public AspiranteAsignadoDto consultAsignadoAspirante(AspiranteDiscapacidad entity) {
+        AspiranteAsignadoDto dto = new AspiranteAsignadoDto();
+        dto.setAspiranteId(entity.getAspirante().getAspirante_id());
+        dto.setNombreAspirante(entity.getAspirante().getNombre());
+
+        return dto;
+    }
+
+    @Override
+    public DiscapacidadAsignadaDto consultAsignadoDiscapacidad(AspiranteDiscapacidad entity) {
+        DiscapacidadAsignadaDto dto = new DiscapacidadAsignadaDto();
+        dto.setDiscapacidadId(entity.getDiscapacidad().getDiscapacidad_id());
+        dto.setNombreDiscapacidad(entity.getDiscapacidad().getNombre());
         return dto;
     }
 

@@ -6,7 +6,9 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
+import com.workable_sb.workable.dto.AspiranteAsignadoDto;
 import com.workable_sb.workable.dto.AspiranteDiscapacidadDto;
+import com.workable_sb.workable.dto.DiscapacidadAsignadaDto;
 import com.workable_sb.workable.dto.RespAsignacionMasivaDTO;
 import com.workable_sb.workable.dto.ResultadoAsignacionDTO;
 import com.workable_sb.workable.mapper.AspiranteDiscapMapper;
@@ -28,14 +30,13 @@ public class AspiranteDiscapServiceImpl implements AspiranteDiscapacidadService 
     }
 
     @Override
-    public AspiranteDiscapacidadDto asignar(AspiranteDiscapacidadDto dto) {
-        AspiranteDiscapacidad relacion = mapper.consult(dto);
-        AspiranteDiscapacidadId id = new AspiranteDiscapacidadId(dto.getAspi_id(), dto.getDisc_id());
+    public AspiranteDiscapacidadDto asignar(AspiranteDiscapacidadDto aspiranteDiscapacidadDto) {
+        AspiranteDiscapacidad aspiranteDiscapacidad = mapper.consult(aspiranteDiscapacidadDto);
+        AspiranteDiscapacidadId id = new AspiranteDiscapacidadId(aspiranteDiscapacidadDto.getAspi_id(), aspiranteDiscapacidadDto.getDisc_id());
         if (repository.existsById(id)) {
-            throw new IllegalStateException("Ya existe esta relación Aspirante–Discapacidad");
+            throw new IllegalStateException("Ya existe esta relación Aspirante-Discapacidad");
         }
-
-        AspiranteDiscapacidad guardado = repository.save(relacion);
+        AspiranteDiscapacidad guardado = repository.save(aspiranteDiscapacidad);
         return mapper.consultDto(guardado);
     }
 
@@ -46,12 +47,26 @@ public class AspiranteDiscapServiceImpl implements AspiranteDiscapacidadService 
                 .map(mapper::consultDto)
                 .collect(Collectors.toList());
     }
+    @Override
+    public List<AspiranteAsignadoDto> listarPorAspirante2(Integer aspiranteId) {
+        return repository.findByAspirante_AspiranteId(aspiranteId)
+                .stream()
+                .map(mapper:: consultAsignadoAspirante)
+                .collect(Collectors.toList());
+    }
 
     @Override
     public List<AspiranteDiscapacidadDto> listarPorDiscapacidad(Short discapacidadId) {
         return repository.findByDiscapacidad_DiscapacidadId(discapacidadId)
                 .stream()
                 .map(mapper::consultDto)
+                .collect(Collectors.toList());
+    }
+    @Override
+    public List<DiscapacidadAsignadaDto> listarPorDiscapacidad2(Short discapacidadId) {
+        return repository.findByDiscapacidad_DiscapacidadId(discapacidadId)
+                .stream()
+                .map(mapper::consultAsignadoDiscapacidad)
                 .collect(Collectors.toList());
     }
 
@@ -71,8 +86,8 @@ public class AspiranteDiscapServiceImpl implements AspiranteDiscapacidadService 
 
         for (AspiranteDiscapacidadDto dto : asignaciones) {
             ResultadoAsignacionDTO resultado = new ResultadoAsignacionDTO();
-            resultado.setAspiranteId(dto.getAspi_id().longValue());
-            resultado.setDiscapacidadId(dto.getDisc_id().longValue());
+            resultado.setAspiranteId(dto.getAspi_id());
+            resultado.setDiscapacidadId(dto.getDisc_id());
 
             try {
                 AspiranteDiscapacidadId id = new AspiranteDiscapacidadId(dto.getAspi_id(), dto.getDisc_id());
@@ -112,8 +127,8 @@ public class AspiranteDiscapServiceImpl implements AspiranteDiscapacidadService 
 
         for (AspiranteDiscapacidadDto dto : asignaciones) {
             ResultadoAsignacionDTO resultado = new ResultadoAsignacionDTO();
-            resultado.setEmpleadoId(dto.getAspi_id().longValue());
-            resultado.setProyectoId(dto.getDisc_id().longValue());
+            resultado.setAspiranteId(dto.getAspi_id());
+            resultado.setDiscapacidadId(dto.getDisc_id());
 
             try {
                 AspiranteDiscapacidadId id = new AspiranteDiscapacidadId(dto.getAspi_id(), dto.getDisc_id());
