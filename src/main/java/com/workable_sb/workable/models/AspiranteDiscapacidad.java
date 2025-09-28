@@ -21,7 +21,7 @@ public class AspiranteDiscapacidad {
 
   @ManyToOne
   @MapsId("aspirante_id")
-  @JoinColumn(name = "aspiranteid", nullable = false, foreignKey = @ForeignKey(name = "FK_aspiranteDiscapacidad_aspirante"))
+  @JoinColumn(name = "aspirante_id", nullable = false, foreignKey = @ForeignKey(name = "FK_aspiranteDiscapacidad_aspirante"))
   private Aspirante aspirante;
 
   @ManyToOne
