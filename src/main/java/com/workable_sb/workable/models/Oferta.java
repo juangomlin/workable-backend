@@ -1,6 +1,6 @@
 package com.workable_sb.workable.models;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -34,9 +34,10 @@ public class Oferta {
 
   @Column(nullable = false, length = 100)
   private String ubicacion;
+  private LocalDate fechaPublicacion;
 
-  private Date fechaPublicacion;
-  private Date fechaLimite;
+  @Column(nullable = false)
+  private LocalDate fechaLimite;
 
   @ManyToOne(optional = false)
   @JoinColumn(name = "modalidad_id", nullable = false,

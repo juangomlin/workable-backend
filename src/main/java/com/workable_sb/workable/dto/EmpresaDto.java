@@ -19,12 +19,15 @@ public class EmpresaDto {
   @NotBlank
   private String desc;
 
+  @NotNull
+  private Integer numTrab;
+
+  @NotBlank
+  private String correoCorp;
+
   @NotNull(message = "la categoria es obligatoria")
-  private Integer cate_id;
-  private String nom_cat;
+  private Integer cat_id;
 
   @NotNull(message = "el municipio es obligatorio")
   private Integer munici_id;
-
-  private String nom_munici;
 }

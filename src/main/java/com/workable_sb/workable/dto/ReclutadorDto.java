@@ -1,7 +1,6 @@
 package com.workable_sb.workable.dto;
 
-import java.sql.Date;
-
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,22 +10,18 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class ReclutadorDto {
-    private Integer reclutador_id;
-
-    @NotNull
+    @NotBlank
     private String nom;
 
-    @NotNull
+    @NotBlank
     private String clave;
 
-    @NotNull
-    private String correo;
+    @NotBlank
+    private String corr;
 
     @NotNull
-    private Date fecharegistro;
-    // borrar
+    private Long tel;
 
     @NotNull(message = "el id de empresa es obligatorio")
-    private Integer empresa_id;
-    private String empresa_nom;
+    private Long empresa_id;
 }

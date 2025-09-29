@@ -11,7 +11,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,12 +20,11 @@ import jakarta.persistence.ForeignKey;
 @NoArgsConstructor
 @Entity
 @Data
-@Table(name = "aspirante")
 public class Aspirante {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Integer aspirante_id;
+  private Integer aspiranteId;
 
   @Column(nullable = false, length = 255)
   private String nombre;

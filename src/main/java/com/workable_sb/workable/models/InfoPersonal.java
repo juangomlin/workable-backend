@@ -43,6 +43,6 @@ public class InfoPersonal {
   private Genero genero;
 
   @OneToOne(cascade = CascadeType.ALL)
-  @JoinColumn(name = "aspirante_id", referencedColumnName = "aspirante_id", foreignKey = @ForeignKey(name = "FK_infoPersonal_Aspirante"))
+  @JoinColumn(name = "aspirante_id", referencedColumnName = "aspiranteId", foreignKey = @ForeignKey(name = "FK_infoPersonal_Aspirante"))
   private Aspirante aspirante;
 }

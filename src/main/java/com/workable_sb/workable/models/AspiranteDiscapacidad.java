@@ -20,12 +20,12 @@ public class AspiranteDiscapacidad {
   private AspiranteDiscapacidadId id = new AspiranteDiscapacidadId();
 
   @ManyToOne
-  @MapsId("aspirante_id")
-  @JoinColumn(name = "aspirante_id", nullable = false, foreignKey = @ForeignKey(name = "FK_aspiranteDiscapacidad_aspirante"))
+  @MapsId("aspiranteId")
+  @JoinColumn(name = "aspiranteId", nullable = false, foreignKey = @ForeignKey(name = "FK_aspiranteDiscapacidad_aspirante"))
   private Aspirante aspirante;
 
   @ManyToOne
-  @MapsId("discapacidad_id")
-  @JoinColumn(name = "discapacidad_id", nullable = false, foreignKey = @ForeignKey(name = "FK_aspiranteDiscapacidad_discapacidad"))
+  @MapsId("discapacidadId")
+  @JoinColumn(name = "discapacidadId", nullable = false, foreignKey = @ForeignKey(name = "FK_aspiranteDiscapacidad_discapacidad"))
   private Discapacidad discapacidad;
 }

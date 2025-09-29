@@ -48,9 +48,9 @@ public class AspiranteDiscapMapperImple implements AspiranteDiscapMapper{
     @Override
     public AspiranteDiscapacidadDto consultDto(AspiranteDiscapacidad entity) {
         AspiranteDiscapacidadDto dto = new AspiranteDiscapacidadDto();
-        dto.setAspi_id(entity.getAspirante().getAspirante_id());
+        dto.setAspi_id(entity.getAspirante().getAspiranteId());
         dto.setNom_aspi(entity.getAspirante().getNombre());
-        dto.setDisc_id(entity.getDiscapacidad().getDiscapacidad_id());
+        dto.setDisc_id(entity.getDiscapacidad().getDiscapacidadId());
         dto.setNom_dis(entity.getDiscapacidad().getNombre());
 
         return dto;
@@ -59,7 +59,7 @@ public class AspiranteDiscapMapperImple implements AspiranteDiscapMapper{
       @Override
     public AspiranteAsignadoDto consultAsignadoAspirante(AspiranteDiscapacidad entity) {
         AspiranteAsignadoDto dto = new AspiranteAsignadoDto();
-        dto.setAspiranteId(entity.getAspirante().getAspirante_id());
+        dto.setAspiranteId(entity.getAspirante().getAspiranteId());
         dto.setNombreAspirante(entity.getAspirante().getNombre());
 
         return dto;
@@ -68,7 +68,7 @@ public class AspiranteDiscapMapperImple implements AspiranteDiscapMapper{
     @Override
     public DiscapacidadAsignadaDto consultAsignadoDiscapacidad(AspiranteDiscapacidad entity) {
         DiscapacidadAsignadaDto dto = new DiscapacidadAsignadaDto();
-        dto.setDiscapacidadId(entity.getDiscapacidad().getDiscapacidad_id());
+        dto.setDiscapacidadId(entity.getDiscapacidad().getDiscapacidadId());
         dto.setNombreDiscapacidad(entity.getDiscapacidad().getNombre());
         return dto;
     }

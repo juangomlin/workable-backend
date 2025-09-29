@@ -66,7 +66,7 @@ public class AspiranteMapperImple implements AspiranteMapper{
     return null;
 
     return new AspiranteReadDto(
-      entity.getAspirante_id(),
+      entity.getAspiranteId(),
       entity.getNombre(),
       entity.getApellido(),
       entity.getCorreo(),

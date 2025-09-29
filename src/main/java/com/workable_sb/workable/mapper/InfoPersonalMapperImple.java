@@ -55,7 +55,7 @@ public class InfoPersonalMapperImple implements InfoPersonalMapper {
             entity.getFotoPerfil(),
             entity.getGenero().getGenero_id(),
             entity.getGenero().getNombre(),
-            entity.getAspirante().getAspirante_id(),
+            entity.getAspirante().getAspiranteId(),
             entity.getAspirante().getNombre());
         }
 

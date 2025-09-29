@@ -3,10 +3,11 @@ package com.workable_sb.workable.service;
 import java.util.List;
 
 import com.workable_sb.workable.dto.ValoracionDto;
+import com.workable_sb.workable.dto.ValoracionReadDto;
 
 public interface ValoracionService {
-  ValoracionDto crear(ValoracionDto valoracionDto);
-  ValoracionDto listarId(Integer id);
-  List<ValoracionDto> listarAll();
+  ValoracionReadDto crear(ValoracionDto valoracionDto);
+  ValoracionReadDto listarId(Integer id);
+  List<ValoracionReadDto> listarAll();
   void eliminar(Integer id);
 }

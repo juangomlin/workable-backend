@@ -49,7 +49,7 @@ public class DatoExperienciaMapperImple implements DatoExperienciaMapper {
             entity.getFechaInicio(),
             entity.getFechaFin(),
             entity.getUbicacion(),
-            entity.getAspirante().getAspirante_id(),
+            entity.getAspirante().getAspiranteId(),
             entity.getAspirante().getNombre());
     }
 }

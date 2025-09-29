@@ -42,14 +42,14 @@ public class AspiranteDiscapServiceImpl implements AspiranteDiscapacidadService 
 
     @Override
     public List<AspiranteDiscapacidadDto> listarPorAspirante(Integer aspiranteId) {
-        return repository.findByAspirante_AspiranteId(aspiranteId)
+        return repository.findById_aspiranteId(aspiranteId)
                 .stream()
                 .map(mapper::consultDto)
                 .collect(Collectors.toList());
     }
     @Override
     public List<AspiranteAsignadoDto> listarPorAspirante2(Integer aspiranteId) {
-        return repository.findByAspirante_AspiranteId(aspiranteId)
+        return repository.findById_aspiranteId(aspiranteId)
                 .stream()
                 .map(mapper:: consultAsignadoAspirante)
                 .collect(Collectors.toList());
@@ -57,14 +57,14 @@ public class AspiranteDiscapServiceImpl implements AspiranteDiscapacidadService 
 
     @Override
     public List<AspiranteDiscapacidadDto> listarPorDiscapacidad(Short discapacidadId) {
-        return repository.findByDiscapacidad_DiscapacidadId(discapacidadId)
+        return repository.findById_discapacidadId(discapacidadId)
                 .stream()
                 .map(mapper::consultDto)
                 .collect(Collectors.toList());
     }
     @Override
     public List<DiscapacidadAsignadaDto> listarPorDiscapacidad2(Short discapacidadId) {
-        return repository.findByDiscapacidad_DiscapacidadId(discapacidadId)
+        return repository.findById_discapacidadId(discapacidadId)
                 .stream()
                 .map(mapper::consultAsignadoDiscapacidad)
                 .collect(Collectors.toList());

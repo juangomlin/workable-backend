@@ -2,7 +2,6 @@ package com.workable_sb.workable.controller;
 
 import java.util.List;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.workable_sb.workable.dto.ReclutadorDto;
+import com.workable_sb.workable.dto.ReclutadorReadDto;
 import com.workable_sb.workable.service.ReclutadorService;
 
 import jakarta.validation.Valid;
@@ -28,20 +28,20 @@ public class ReclutadorController {
     }
 
     @PostMapping
-    public ResponseEntity<ReclutadorDto> crearyupdate(@Valid @RequestBody ReclutadorDto reclutadorDto) {
-        ReclutadorDto crear = reclutadorService.crearyupdate(reclutadorDto);
-        return ResponseEntity.status(HttpStatus.CREATED).body(crear);
+    public ResponseEntity<ReclutadorReadDto> crearyupdate(@Valid @RequestBody ReclutadorDto reclutadorDto) {
+        ReclutadorReadDto crear = reclutadorService.crearyupdate(reclutadorDto);
+        return ResponseEntity.ok(crear);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ReclutadorDto> obtenerPorId(@PathVariable Integer reclutador_id) {
-        ReclutadorDto obtener = reclutadorService.buscarPorId(reclutador_id);
+    public ResponseEntity<ReclutadorReadDto> obtenerPorId(@PathVariable Integer reclutador_id) {
+        ReclutadorReadDto obtener = reclutadorService.buscarPorId(reclutador_id);
         return ResponseEntity.ok(obtener);
     }
 
     @GetMapping
-    public ResponseEntity<List<ReclutadorDto>> listarTodos() {
-        List<ReclutadorDto> reclutador = reclutadorService.listarTodos();
+    public ResponseEntity<List<ReclutadorReadDto>> listarTodos() {
+        List<ReclutadorReadDto> reclutador = reclutadorService.listarTodos();
         return ResponseEntity.ok(reclutador);
     }
 

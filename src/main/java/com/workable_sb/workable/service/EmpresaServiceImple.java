@@ -32,7 +32,7 @@ public class EmpresaServiceImple implements EmpresaService{
   }
 
   @Override
-  public EmpresaReadDto listId(Integer id) {
+  public EmpresaReadDto listId(Long id) {
     return empresaRepository.findById(id).map(empresaMapper::consultReadDto).orElseThrow(() -> new EntityNotFoundException("empresa no encontrada"));
   }
 
@@ -42,7 +42,7 @@ public class EmpresaServiceImple implements EmpresaService{
   }
 
   @Override
-  public void eliminar(Integer id) {
+  public void eliminar(Long id) {
     empresaRepository.deleteById(id);
   }
 }

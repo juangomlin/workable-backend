@@ -12,7 +12,7 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+import jakarta.persistence.ForeignKey;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -37,7 +37,7 @@ public class Postulacion {
   private Oferta oferta;
 
   @ManyToOne(optional = false)
-  @JoinColumn(name = "aspirante_id", nullable = false,
-  foreignKey = @jakarta.persistence.ForeignKey(name = "FK_aspirante_postulacion"))
+  @JoinColumn(name = "aspiranteId", referencedColumnName = "aspiranteId", nullable = false,
+  foreignKey = @ForeignKey(name = "FK_aspirante_postulacion"))
   private Aspirante aspirante;
 }
