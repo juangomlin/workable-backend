@@ -8,6 +8,6 @@ import com.workable_sb.workable.models.AspiranteDiscapacidad;
 import com.workable_sb.workable.models.AspiranteDiscapacidadId;
 
 public interface AspiranteDiscapacidadRepository extends JpaRepository<AspiranteDiscapacidad, AspiranteDiscapacidadId> {
-    List<AspiranteDiscapacidad> findByAspirante_AspiranteId(Integer aspiranteId);
-    List<AspiranteDiscapacidad> findByDiscapacidad_DiscapacidadId(Short discapacidadId);
+    List<AspiranteDiscapacidad> findById_aspiranteId(Integer aspirante_id);
+    List<AspiranteDiscapacidad> findById_discapacidadId(Short discapacidad_id);
 }

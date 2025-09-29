@@ -52,7 +52,7 @@ public class DatoEstudioMapperImple implements DatoEstudioMapper {
             entity.getInstitucion(),
             entity.getNivelEducativo().getNivelEducativo_id(),
             entity.getNivelEducativo().getNombre(),
-            entity.getAspirante().getAspirante_id()
+            entity.getAspirante().getAspiranteId()
         );
     }
 }

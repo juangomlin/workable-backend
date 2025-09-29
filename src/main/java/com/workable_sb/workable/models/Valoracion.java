@@ -34,10 +34,10 @@ public class Valoracion {
 	private LocalDate fecha_valoracion;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "empresa_id", nullable = false, foreignKey = @jakarta.persistence.ForeignKey(name = "FK_empresa_valoracion"))
+	@JoinColumn(name = "empresa_id",nullable = false, foreignKey = @jakarta.persistence.ForeignKey(name = "FK_empresa_valoracion"))
 	private Empresa empresa;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "aspirante_id", nullable = false, foreignKey = @jakarta.persistence.ForeignKey(name = "FK_aspirante_valoracion"))
+	@JoinColumn(name = "aspiranteId", nullable = false, foreignKey = @jakarta.persistence.ForeignKey(name = "FK_aspirante_valoracion"))
 	private Aspirante aspirante;
 }
