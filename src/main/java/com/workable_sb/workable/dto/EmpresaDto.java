@@ -26,7 +26,7 @@ public class EmpresaDto {
   private String correoCorp;
 
   @NotNull(message = "la categoria es obligatoria")
-  private Integer cate_id;
+  private Integer cat_id;
 
   @NotNull(message = "el municipio es obligatorio")
   private Integer munici_id;

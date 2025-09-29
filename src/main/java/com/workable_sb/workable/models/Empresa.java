@@ -22,7 +22,8 @@ import jakarta.persistence.ForeignKey;
 public class Empresa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long nit_id;
+    @Column(name = "nit_id")
+    private Long nitId;
 
     @Column(nullable = false, length = 255)
     private String nombre;

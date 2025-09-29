@@ -41,7 +41,7 @@ public class ReclutadorMapperImple implements ReclutadorMapper {
             reclutador.getClave(),
             reclutador.getCorreo(),
             reclutador.getTelefono(),
-            reclutador.getEmpresa().getNit_id(),
+            reclutador.getEmpresa().getNitId(),
             reclutador.getEmpresa().getNombre()
         );
     }

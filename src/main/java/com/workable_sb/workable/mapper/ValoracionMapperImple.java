@@ -49,7 +49,7 @@ public class ValoracionMapperImple implements ValoracionMapper {
     entity.getDescripcion(),
     entity.getPuntuacion(),
     entity.getFecha_valoracion(),
-    entity.getEmpresa().getNit_id(),
+    entity.getEmpresa().getNitId(),
     entity.getEmpresa().getNombre(),
     entity.getAspirante().getAspiranteId(),
     entity.getAspirante().getNombre()

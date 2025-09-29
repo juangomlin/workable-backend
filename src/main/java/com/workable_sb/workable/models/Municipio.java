@@ -5,7 +5,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,8 +15,6 @@ import jakarta.persistence.ForeignKey;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "municipio")
-
 public class Municipio {
   @Id
   private Integer municipio_id;

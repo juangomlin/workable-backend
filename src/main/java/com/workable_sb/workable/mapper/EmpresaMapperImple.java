@@ -35,7 +35,7 @@ public class EmpresaMapperImple implements EmpresaMapper{
     Municipio municipio = municipioRepository.findById(empresaDto.getMunici_id()).orElseThrow(() -> new EntityNotFoundException("Municipio no encontrado"));
     empresa.setMunicipio(municipio);
 
-    Categoria categoria = categoriaRepository.findById(empresaDto.getCate_id()).orElseThrow(() -> new EntityNotFoundException("Categoria no encontrada"));
+    Categoria categoria = categoriaRepository.findById(empresaDto.getCat_id()).orElseThrow(() -> new EntityNotFoundException("Categoria no encontrada"));
     empresa.setCategoria(categoria);
 
     return empresa;
@@ -44,7 +44,7 @@ public class EmpresaMapperImple implements EmpresaMapper{
   @Override
   public EmpresaReadDto consultReadDto(Empresa empresa) {
     return new EmpresaReadDto(
-      empresa.getNit_id(),
+      empresa.getNitId(),
       empresa.getNombre(),
       empresa.getUbicacion(),
       empresa.getDescripcion(),

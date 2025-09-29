@@ -66,7 +66,7 @@ public class OfertaMapperImple implements OfertaMapper{
           entity.getModalidad().getNombre(),
           entity.getTipoContrato().getTipo_contrato_id(),
           entity.getTipoContrato().getNombre(),
-          entity.getEmpresa().getNit_id(),
+          entity.getEmpresa().getNitId(),
           entity.getEmpresa().getNombre()
       );
   }
