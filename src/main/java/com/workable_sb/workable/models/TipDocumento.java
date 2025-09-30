@@ -15,4 +15,6 @@ public class TipDocumento {
 
   @Column(length = 20)
   private String nombre;
+
+  private Integer numeroDocumento;
 }

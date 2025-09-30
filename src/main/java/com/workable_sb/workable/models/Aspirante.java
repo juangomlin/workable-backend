@@ -42,6 +42,8 @@ public class Aspirante {
   private Long telefono;
 
   private Date fecha_Nacimiento;
+  
+
 
   @Lob
   private byte[] foto;

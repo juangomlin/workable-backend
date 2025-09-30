@@ -75,6 +75,7 @@ public class AspiranteMapperImple implements AspiranteMapper{
       entity.getFecha_Nacimiento(),
       entity.getTipDocumento().getTipoDocumento_id(),
       entity.getTipDocumento().getNombre(),
+      entity.getTipDocumento().getNumeroDocumento(),
       entity.getMunicipio().getMunicipio_id(),
       entity.getMunicipio().getNombre(),
       entity.getGenero().getGenero_id(),
