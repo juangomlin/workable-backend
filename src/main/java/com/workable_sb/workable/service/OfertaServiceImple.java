@@ -5,8 +5,8 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import com.workable_sb.workable.dto.OfertaDto;
-import com.workable_sb.workable.dto.OfertaReadDto;
+import com.workable_sb.workable.dto.oferta.OfertaDto;
+import com.workable_sb.workable.dto.oferta.OfertaReadDto;
 import com.workable_sb.workable.mapper.OfertaMapper;
 import com.workable_sb.workable.models.Oferta;
 import com.workable_sb.workable.repositories.OfertaRepository;

@@ -2,8 +2,8 @@ package com.workable_sb.workable.mapper;
 
 import org.springframework.stereotype.Component;
 
-import com.workable_sb.workable.dto.OfertaDto;
-import com.workable_sb.workable.dto.OfertaReadDto;
+import com.workable_sb.workable.dto.oferta.OfertaDto;
+import com.workable_sb.workable.dto.oferta.OfertaReadDto;
 import com.workable_sb.workable.models.Empresa;
 import com.workable_sb.workable.models.Modalidad;
 import com.workable_sb.workable.models.Oferta;

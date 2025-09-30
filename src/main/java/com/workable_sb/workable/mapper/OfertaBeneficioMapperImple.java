@@ -6,7 +6,6 @@ import com.workable_sb.workable.models.Oferta;
 import com.workable_sb.workable.models.OfertaBeneficio;
 import com.workable_sb.workable.models.OfertaBeneficioId;
 import com.workable_sb.workable.repositories.BeneficioRepository;
-import com.workable_sb.workable.repositories.OfertaBeneficioRepository;
 import com.workable_sb.workable.repositories.OfertaRepository;
 
 import jakarta.persistence.EntityNotFoundException;
@@ -45,5 +44,21 @@ public class OfertaBeneficioMapperImple implements OfertaBeneficioMapper{
       entity.getBeneficio().getBeneficioId(),
       entity.getBeneficio().getNombre()
     );
+  }
+
+  @Override 
+  public OfertaBeneficioDto consultByBeneficio(OfertaBeneficio entity) {
+    OfertaBeneficioDto dto = new OfertaBeneficioDto();
+    dto.setBeneId(entity.getBeneficio().getBeneficioId());
+    dto.setNomb(entity.getBeneficio().getNombre());
+    return dto;
+  }
+
+  @Override
+  public OfertaBeneficioDto consultByOferta(OfertaBeneficio entity) {
+  OfertaBeneficioDto  dto = new OfertaBeneficioDto();
+  dto.setOfeId(entity.getOferta().getOfertaId());
+  dto.setTitul(entity.getOferta().getTitulo());
+  return dto;
   }
 }

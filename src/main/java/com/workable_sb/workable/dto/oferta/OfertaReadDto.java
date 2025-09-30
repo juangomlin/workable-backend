@@ -1,4 +1,4 @@
-package com.workable_sb.workable.dto;
+package com.workable_sb.workable.dto.oferta;
 
 import java.time.LocalDate;
 
