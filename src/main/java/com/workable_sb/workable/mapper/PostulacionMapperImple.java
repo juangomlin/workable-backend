@@ -56,7 +56,7 @@ public class PostulacionMapperImple implements PostulacionMapper{
     entity.getFecha(),
     entity.getEstado().getEstado_id(),
     entity.getEstado().getNombre(),
-    entity.getOferta().getOferta_id(),
+    entity.getOferta().getOfertaId(),
     entity.getOferta().getTitulo(),
     entity.getAspirante().getAspiranteId(),
     entity.getAspirante().getNombre()

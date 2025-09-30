@@ -21,13 +21,13 @@ public class OfertaBeneficio {
   private OfertaBeneficioId id = new OfertaBeneficioId();
 
   @ManyToOne
-  @MapsId("oferta_id")
-  @JoinColumn(name = "ofertaid", nullable = false, foreignKey = @ForeignKey(name = "FK_ofertaBeneficio_oferta"))
+  @MapsId("ofertaId")
+  @JoinColumn(name = "ofertaId", nullable = false, foreignKey = @ForeignKey(name = "FK_ofertaBeneficio_oferta"))
   private Oferta oferta;
 
   @ManyToOne
   @MapsId("beneficio_id")
-  @JoinColumn(name = "beneficioid", nullable = false, foreignKey = @ForeignKey(name = "FK_ofertaBeneficio_beneficio"))
+  @JoinColumn(name = "beneficioId", nullable = false, foreignKey = @ForeignKey(name = "FK_ofertaBeneficio_beneficio"))
   private Beneficio beneficio;
 
 }

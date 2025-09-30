@@ -12,6 +12,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class OfertaBeneficioId implements Serializable{
-    private Integer oferta_id;
-    private Short beneficio_id;
+    private Integer ofertaId;
+    private Short beneficioId;
 }
