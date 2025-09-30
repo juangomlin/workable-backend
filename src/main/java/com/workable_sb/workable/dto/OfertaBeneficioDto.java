@@ -13,6 +13,6 @@ public class OfertaBeneficioDto {
   private Integer ofeId;
   private String titul;
   @NotNull(message = "campo beneficioId es obligatrio")
-  private Integer bened;
+  private Short beneId;
   private String nomb;
 }
