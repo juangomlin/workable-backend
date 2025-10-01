@@ -38,6 +38,9 @@ public class AspiranteDto {
   @NotNull
   private String cla;
 
+  @NotNull
+  private Integer numDoc;
+
   @NotNull(message = "El id de tipo de documento es obligatorio")
   private Integer tipDoc_id;
 

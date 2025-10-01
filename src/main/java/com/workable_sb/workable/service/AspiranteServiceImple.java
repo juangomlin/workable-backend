@@ -35,7 +35,7 @@ public class AspiranteServiceImple implements AspiranteService{
   public AspiranteReadDto listId(Integer id){
     return aspiranteRepository.findById(id)
       .map(aspiranteMapper::consultReadDto)
-      .orElseThrow(() -> new EntityNotFoundException("usuario no encontrado"));
+      .orElseThrow(() -> new EntityNotFoundException("Aspirante no encontrado"));
   }
 
   @Override

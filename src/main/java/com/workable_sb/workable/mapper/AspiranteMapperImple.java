@@ -43,6 +43,7 @@ public class AspiranteMapperImple implements AspiranteMapper{
     aspirante.setFecha_Nacimiento(aspiranteDto.getFeNa());
     aspirante.setFoto(aspiranteDto.getFoto());
     aspirante.setClave(aspiranteDto.getCla());
+    aspirante.setNumero_Doc(aspiranteDto.getNumDoc());
     
     Municipio municipio = municipioRepository.findById(aspiranteDto.getMunici_id())
     .orElseThrow(() -> new EntityNotFoundException("municipio no encontrado"));
@@ -73,9 +74,9 @@ public class AspiranteMapperImple implements AspiranteMapper{
       entity.getUbicacion(),
       entity.getTelefono(),
       entity.getFecha_Nacimiento(),
+      entity.getNumero_Doc(),
       entity.getTipDocumento().getTipoDocumento_id(),
       entity.getTipDocumento().getNombre(),
-      entity.getTipDocumento().getNumeroDocumento(),
       entity.getMunicipio().getMunicipio_id(),
       entity.getMunicipio().getNombre(),
       entity.getGenero().getGenero_id(),
