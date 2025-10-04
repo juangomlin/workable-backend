@@ -14,15 +14,15 @@ public class OfertaReadDto {
   private String titu;
   private String desc;
   private String ubi;
-  private LocalDate fechaPub;
-  private LocalDate fechLim;
+  private LocalDate fechaPu;
+  private LocalDate fechLi;
 
-  private Integer modal_id;
+  private Integer modalidad_id;
   private String modalNomb;
 
-  private Integer tipoCon_id;
+  private Integer tipoContrato_id;
   private String tipoConNomb;
 
-  private Long emp_id;
+  private Long empresa_id;
   private String empNomb;
 }

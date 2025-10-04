@@ -1,6 +1,10 @@
 package com.workable_sb.workable.mapper;
 
-import com.workable_sb.workable.dto.OfertaBeneficioDto;
+import org.springframework.stereotype.Component;
+
+import com.workable_sb.workable.dto.beneficio.BeneficioAssignDto;
+import com.workable_sb.workable.dto.oferta.OfertaAssignDto;
+import com.workable_sb.workable.dto.ofertaBeneficio.OfertaBeneficioDto;
 import com.workable_sb.workable.models.Beneficio;
 import com.workable_sb.workable.models.Oferta;
 import com.workable_sb.workable.models.OfertaBeneficio;
@@ -10,6 +14,7 @@ import com.workable_sb.workable.repositories.OfertaRepository;
 
 import jakarta.persistence.EntityNotFoundException;
 
+@Component
 public class OfertaBeneficioMapperImple implements OfertaBeneficioMapper{
   private final OfertaRepository ofertaRepository;
   private final BeneficioRepository beneficioRepository;
@@ -20,7 +25,7 @@ public class OfertaBeneficioMapperImple implements OfertaBeneficioMapper{
   }
 
   @Override
-  public OfertaBeneficio consultEntity(OfertaBeneficioDto dto) {
+  public OfertaBeneficio toEntity(OfertaBeneficioDto dto) {
 
     Oferta oferta = ofertaRepository.findById(dto.getOfeId()).orElseThrow(() -> new EntityNotFoundException("oferta no encontrada"));
 
@@ -37,7 +42,7 @@ public class OfertaBeneficioMapperImple implements OfertaBeneficioMapper{
   }
 
   @Override
-  public OfertaBeneficioDto consultDto(OfertaBeneficio entity) {
+  public OfertaBeneficioDto toDto(OfertaBeneficio entity) {
     return new OfertaBeneficioDto(
       entity.getOferta().getOfertaId(),
       entity.getOferta().getTitulo(),
@@ -47,18 +52,18 @@ public class OfertaBeneficioMapperImple implements OfertaBeneficioMapper{
   }
 
   @Override 
-  public OfertaBeneficioDto consultByBeneficio(OfertaBeneficio entity) {
-    OfertaBeneficioDto dto = new OfertaBeneficioDto();
-    dto.setBeneId(entity.getBeneficio().getBeneficioId());
-    dto.setNomb(entity.getBeneficio().getNombre());
+  public BeneficioAssignDto consultByBeneficio(OfertaBeneficio entity) {
+    BeneficioAssignDto dto = new BeneficioAssignDto();
+    dto.setId(entity.getBeneficio().getBeneficioId());
+    dto.setNombre(entity.getBeneficio().getNombre());
     return dto;
   }
 
   @Override
-  public OfertaBeneficioDto consultByOferta(OfertaBeneficio entity) {
-  OfertaBeneficioDto  dto = new OfertaBeneficioDto();
-  dto.setOfeId(entity.getOferta().getOfertaId());
-  dto.setTitul(entity.getOferta().getTitulo());
+  public OfertaAssignDto consultByOferta(OfertaBeneficio entity) {
+  OfertaAssignDto  dto = new OfertaAssignDto();
+  dto.setId(entity.getOferta().getOfertaId());
+  dto.setTitulo(entity.getOferta().getTitulo());
   return dto;
   }
 }

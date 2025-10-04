@@ -14,7 +14,6 @@ import jakarta.persistence.ForeignKey;;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class OfertaBeneficio {
 
   @EmbeddedId
@@ -22,12 +21,12 @@ public class OfertaBeneficio {
 
   @ManyToOne
   @MapsId("ofertaId")
-  @JoinColumn(name = "ofertaId", nullable = false, foreignKey = @ForeignKey(name = "FK_ofertaBeneficio_oferta"))
+  @JoinColumn(name = "oferta_id", nullable = false, foreignKey = @ForeignKey(name = "FK_ofertaBeneficio_oferta"))
   private Oferta oferta;
 
   @ManyToOne
-  @MapsId("beneficio_id")
-  @JoinColumn(name = "beneficioId", nullable = false, foreignKey = @ForeignKey(name = "FK_ofertaBeneficio_beneficio"))
+  @MapsId("beneficioId")
+  @JoinColumn(name = "beneficio_id", nullable = false, foreignKey = @ForeignKey(name = "FK_ofertaBeneficio_beneficio"))
   private Beneficio beneficio;
 
 }

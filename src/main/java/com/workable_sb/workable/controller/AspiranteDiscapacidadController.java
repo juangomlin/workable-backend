@@ -30,8 +30,7 @@ public class AspiranteDiscapacidadController {
     }
 
     @PostMapping
-    public ResponseEntity<AspiranteDiscapacidadDto> asignar(
-            @Valid @RequestBody AspiranteDiscapacidadDto dto) {
+    public ResponseEntity<AspiranteDiscapacidadDto> asignar(@Valid @RequestBody AspiranteDiscapacidadDto dto) {
         AspiranteDiscapacidadDto asignado = service.asignar(dto);
         return ResponseEntity.ok(asignado);
     }

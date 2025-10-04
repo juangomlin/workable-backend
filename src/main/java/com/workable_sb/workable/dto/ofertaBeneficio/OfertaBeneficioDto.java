@@ -1,4 +1,4 @@
-package com.workable_sb.workable.dto;
+package com.workable_sb.workable.dto.ofertaBeneficio;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;

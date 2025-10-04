@@ -148,7 +148,6 @@ public class AspiranteDiscapServiceImpl implements AspiranteDiscapacidadService 
 
             resultados.add(resultado);
         }
-
         return resultados;
     }
 }
