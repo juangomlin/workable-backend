@@ -57,7 +57,7 @@ public class OfertaBeneficioServiceImpl implements OfertaBeneficioService{
   }
 
   @Override
-  public List<OfertaBeneficioDto> listByBeneficio(Short beneficioId) {
+  public List<OfertaBeneficioDto> listByBeneficio(Integer beneficioId) {
     return repository.findById_beneficioId(beneficioId)
     .stream()
     .map(mapper::toDto)
@@ -65,7 +65,7 @@ public class OfertaBeneficioServiceImpl implements OfertaBeneficioService{
   }
 
   @Override
-  public List<BeneficioAssignDto> listByBeneficio2(Short beneficioId) {
+  public List<BeneficioAssignDto> listByBeneficio2(Integer beneficioId) {
     return repository.findById_beneficioId(beneficioId)
     .stream()
     .map(mapper::consultByBeneficio)
@@ -73,12 +73,13 @@ public class OfertaBeneficioServiceImpl implements OfertaBeneficioService{
   }
 
   @Override
-  public void deleteAssign(Integer ofertaId, Short beneficioId) {
+  public void deleteAssign(Integer ofertaId, Integer beneficioId) {
     OfertaBeneficioId id = new OfertaBeneficioId(ofertaId, beneficioId);
-    if (!repository.existsById(id)) {
+    if (repository.existsById(id)) {
+          repository.deleteById(id);
+    } else {
       throw new EntityNotFoundException("Realcion no encontrada");
     }
-    repository.deleteById(id);
   }
 
   @Override

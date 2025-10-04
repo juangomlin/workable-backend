@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class OfeBenResultDto {
   private Integer ofeId;
-  private Short beneId;
+  private Integer beneId;
   private String estado; // asignado, duplicado, no encontrado
   private String mensaje; // detalle del resultado
 }

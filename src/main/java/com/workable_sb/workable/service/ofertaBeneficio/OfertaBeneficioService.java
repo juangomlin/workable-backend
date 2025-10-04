@@ -14,10 +14,10 @@ public interface OfertaBeneficioService {
   List<OfertaBeneficioDto> listByOferta(Integer ofertaId);
   List<OfertaAssignDto> listByOferta2(Integer ofertaId);
 
-  List<OfertaBeneficioDto> listByBeneficio(Short beneficioId);
-  List<BeneficioAssignDto> listByBeneficio2(Short beneficioId);
+  List<OfertaBeneficioDto> listByBeneficio(Integer beneficioId);
+  List<BeneficioAssignDto> listByBeneficio2(Integer beneficioId);
 
-  void deleteAssign(Integer ofertaId, Short beneficioId);
+  void deleteAssign(Integer ofertaId, Integer beneficioId);
 
   OfeBenMassResultDto massAssign(List<OfertaBeneficioDto> asignaciones);
   List<OfeBenResultDto> massAssign2(List<OfertaBeneficioDto> asigaciones);

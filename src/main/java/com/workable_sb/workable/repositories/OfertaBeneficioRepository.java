@@ -9,5 +9,5 @@ import com.workable_sb.workable.models.OfertaBeneficioId;
 
 public interface OfertaBeneficioRepository extends JpaRepository<OfertaBeneficio, OfertaBeneficioId>{
   List<OfertaBeneficio> findById_ofertaId(Integer id);
-  List<OfertaBeneficio> findById_beneficioId(Short id);
+  List<OfertaBeneficio> findById_beneficioId(Integer id);
 }

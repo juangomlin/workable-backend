@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class BeneficioAssignDto {
-  private Short id;
+  private Integer id;
   private String Nombre;
 }

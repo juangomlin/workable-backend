@@ -10,7 +10,7 @@ import lombok.Getter;
 @Entity
 public class Beneficio {
   @Id
-  private Short beneficioId;
+  private Integer beneficioId;
 
   @Column(nullable = false, length = 255)
   private String nombre;

@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class BeneficioReadDto {
-  private Short beneId;
+  private Integer beneId;
   private String nombre;
 }

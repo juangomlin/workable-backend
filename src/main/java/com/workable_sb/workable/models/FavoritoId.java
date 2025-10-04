@@ -8,10 +8,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Embeddable
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-public class OfertaBeneficioId implements Serializable{
-    private Integer ofertaId;
-    private Integer beneficioId;
+public class FavoritoId implements Serializable{
+  private Integer aspiranteId;
+  private Integer ofertaId;
 }

@@ -62,19 +62,19 @@ public class OfertaBeneficioController {
   }
 
   @GetMapping("/beneficio/{id}")
-  public ResponseEntity<List<OfertaBeneficioDto>> findByBeneficio(@PathVariable Short id) {
+  public ResponseEntity<List<OfertaBeneficioDto>> findByBeneficio(@PathVariable Integer id) {
     List<OfertaBeneficioDto> results = service.listByBeneficio(id);
     return ResponseEntity.ok(results);
   }
   
     @GetMapping("/beneficio2/{id}")
-  public ResponseEntity<List<BeneficioAssignDto>> findByBeneficio2(@PathVariable Short id) {
+  public ResponseEntity<List<BeneficioAssignDto>> findByBeneficio2(@PathVariable Integer id) {
     List<BeneficioAssignDto> results = service.listByBeneficio2(id);
     return ResponseEntity.ok(results);
   }
 
   @DeleteMapping("/{ofertaId}/{beneficioId}") 
-  public ResponseEntity<Void> deleteAssign(@PathVariable Integer ofertaId, Short beneficioId){
+  public ResponseEntity<Void> deleteAssign(@PathVariable Integer ofertaId, @PathVariable Integer beneficioId){
     service.deleteAssign(ofertaId, beneficioId);
     return ResponseEntity.noContent().build();
   }
