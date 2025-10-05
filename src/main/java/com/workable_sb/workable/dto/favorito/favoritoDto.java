@@ -8,12 +8,12 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class favoritoDto {
+public class FavoritoDto {
   @NotNull(message = "id de aspirante obligatorio")
   private Integer aspId;
 
   @NotNull(message = "id de oferta obligatorio")
   private Integer ofeId;
-  private Integer ofeTit;
+  private String ofeTitu;
   private String ofeEmpresa;
 }

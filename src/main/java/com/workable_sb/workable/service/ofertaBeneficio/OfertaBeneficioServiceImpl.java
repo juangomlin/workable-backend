@@ -34,7 +34,7 @@ public class OfertaBeneficioServiceImpl implements OfertaBeneficioService{
     OfertaBeneficioId id = new OfertaBeneficioId(dto.getOfeId(), dto.getBeneId());
 
     if (repository.existsById(id)) {
-      throw new IllegalStateException("Ya existe esta relaicon Oferta-Beneficio");
+      throw new IllegalStateException("Ya existe esta relacion Oferta-Beneficio");
     }
     OfertaBeneficio guardado =repository.save(entity);
     return mapper.toDto(guardado);

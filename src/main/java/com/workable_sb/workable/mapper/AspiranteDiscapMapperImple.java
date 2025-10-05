@@ -26,8 +26,6 @@ public class AspiranteDiscapMapperImple implements AspiranteDiscapMapper{
   }
 
   @Override
-
-
   public AspiranteDiscapacidad consult(AspiranteDiscapacidadDto dto) {
         Aspirante aspirante = aspiranteRepository.findById(dto.getAspi_id())
                 .orElseThrow(() -> new EntityNotFoundException("Aspirante no encontrado"));

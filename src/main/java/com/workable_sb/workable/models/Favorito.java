@@ -1,5 +1,6 @@
 package com.workable_sb.workable.models;
 
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ForeignKey;
 import jakarta.persistence.JoinColumn;
@@ -14,6 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Favorito {
+  @EmbeddedId
   private FavoritoId id = new FavoritoId();
 
   @ManyToOne
