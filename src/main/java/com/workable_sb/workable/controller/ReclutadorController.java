@@ -18,7 +18,7 @@ import com.workable_sb.workable.service.ReclutadorService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/api/reclutadores")
+@RequestMapping("/api/reclutador")
 public class ReclutadorController {
 
     private final ReclutadorService reclutadorService;
