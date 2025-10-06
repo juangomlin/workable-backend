@@ -11,7 +11,7 @@ import lombok.Getter;
 @Getter
 public class TipDocumento {
   @Id
-  private Short tipo_doc_id;
+  private Integer tipoDocumento_id;
 
   @Column(length = 20)
   private String nombre;

@@ -1,5 +1,9 @@
 package com.workable_sb.workable.mapper;
 
-public interface EmpresaMapper {
+import com.workable_sb.workable.dto.EmpresaDto;
+import com.workable_sb.workable.models.Empresa;
 
+public interface EmpresaMapper {
+  Empresa consultEntity(EmpresaDto empresaDto);
+  EmpresaDto consultReadDto(Empresa empresa);
 }

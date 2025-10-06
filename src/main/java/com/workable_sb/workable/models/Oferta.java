@@ -1,6 +1,6 @@
 package com.workable_sb.workable.models;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,7 +9,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -20,39 +19,37 @@ import lombok.NoArgsConstructor;
 @Data
 @Entity
 @Getter
-@Table(name = "Oferta")
-
 public class Oferta {
   @Id
-  @Column(name = "Oferta_id")
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Integer id;
+  private Integer ofertaId;
   
   @Column(nullable = false, length = 255)
-  private String nomOfert;
+  private String titulo;
 
   @Column(nullable = false, length = 255)
-  private String descrip;
+  private String descripcion;
 
   @Column(nullable = false, length = 100)
-  private String ubicTrab;
+  private String ubicacion;
+  private LocalDate fechaPublicacion;
 
-  private Date fechPu;
-  private Date fechLimApli;
+  @Column(nullable = false)
+  private LocalDate fechaLimite;
 
   @ManyToOne(optional = false)
-  @JoinColumn(name = "modalidad_oferta", nullable = false,
-  foreignKey = @jakarta.persistence.ForeignKey(name = "FK_modalidad_oferta"))
+  @JoinColumn(name = "modalidad_id", nullable = false,
+  foreignKey = @jakarta.persistence.ForeignKey(name = "FK_oferta_modalidad"))
   private Modalidad modalidad;
 
   @ManyToOne(optional = false)
-  @JoinColumn(name = "tipoCont_oferta", nullable = false, 
-  foreignKey = @jakarta.persistence.ForeignKey(name = "FK_tipoCont_oferta"))
+  @JoinColumn(name = "tipoContrato_id", nullable = false,
+  foreignKey = @jakarta.persistence.ForeignKey(name = "FK_oferta_tipoContrato"))
   private TipoContrato tipoContrato;
 
   @ManyToOne(optional = false)
-  @JoinColumn(name = "empresa_oferta", nullable = false,
-  foreignKey = @jakarta.persistence.ForeignKey(name = "FK_empresa_oferta"))
+  @JoinColumn(name = "empresa_id", nullable = false,
+  foreignKey = @jakarta.persistence.ForeignKey(name = "FK_oferta_empresa"))
   private Empresa empresa;
 
 }

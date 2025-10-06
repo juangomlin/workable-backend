@@ -1,23 +1,18 @@
 package com.workable_sb.workable.models;
 
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Getter;
 
 @Entity
 @Getter
-@Table(name = "Modalidad")
+@Table(name = "modalidad")
 public class Modalidad {
   @Id
-  @Column(name = "modal_id")
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Integer id;
+  private Integer modalidad_id;
 
   @Column(nullable = false, length = 255)
-  private String nombreModal;
+  private String nombre;
 }
