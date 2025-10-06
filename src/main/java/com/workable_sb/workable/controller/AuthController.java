@@ -1,5 +1,6 @@
 package com.workable_sb.workable.controller;
 
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -85,18 +86,30 @@ public ResponseEntity<?> register(@Valid @RequestBody AspiranteDto aspiranteDto)
 }
 
 
-    @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody LoginDto loginDto) {
-        Aspirante aspirante = aspiranteRepository.findByCorreo(loginDto.getCorreo())
-                .orElse(null);
+  @PostMapping("/login")
+public ResponseEntity<?> login(@RequestBody LoginDto loginDto) {
+    Aspirante aspirante = aspiranteRepository.findByCorreo(loginDto.getCorreo())
+            .orElse(null);
 
-        if (aspirante == null || !passwordEncoder.matches(loginDto.getClave(), aspirante.getClave())) {
-            return ResponseEntity.status(401).body("❌ Usuario o contraseña incorrectos");
-        }
+    System.out.println("Correo recibido: " + loginDto.getCorreo());
+    System.out.println("Contraseña recibida: " + loginDto.getClave());
 
-        // Generar el token JWT
-        String token = jwtUtil.generateToken(aspirante.getCorreo());
-
-        return ResponseEntity.ok().body(token);
+    if (aspirante != null) {
+        System.out.println("Hash en DB: " + aspirante.getClave());
     }
+    System.out.println("Correo recibido: " + loginDto.getCorreo());
+    System.out.println("Contraseña recibida: " + loginDto.getClave());
+
+    if (aspirante == null || !passwordEncoder.matches(loginDto.getClave(), aspirante.getClave())) {
+        return ResponseEntity.status(401).body(Map.of("error", "Usuario o contraseña incorrectos"));
+    }
+    if (aspirante != null) {
+    boolean coincide = passwordEncoder.matches(loginDto.getClave(), aspirante.getClave());
+    System.out.println("¿Coinciden la contraseña y el hash?: " + coincide);
+}
+
+    String token = jwtUtil.generateToken(aspirante.getCorreo());
+    return ResponseEntity.ok().body(Map.of("token", token));
+    
+}
 }

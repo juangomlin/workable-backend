@@ -2,6 +2,8 @@ package com.workable_sb.workable.dto;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.Lob;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -29,6 +31,7 @@ public class AspiranteDto {
   @NotNull
   private Long tel;
 
+  @DateTimeFormat(pattern = "yyyy-MM-dd")
   @NotNull
   private Date feNa;
 
@@ -50,8 +53,5 @@ public class AspiranteDto {
   @NotNull(message = "El id de genero es obligatorio")
   private Short  genero_id;
 
-  public Object getFechaNacimiento() {
-    throw new UnsupportedOperationException("Unimplemented method 'getFechaNacimiento'");
-  }
 
 }
