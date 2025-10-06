@@ -25,6 +25,8 @@ public class AspiranteReadDto {
 
   private Date feNa;
 
+    private Integer numerDoc;
+
   private Integer tipDoc_id;
   private String nombreTipDoc;
 

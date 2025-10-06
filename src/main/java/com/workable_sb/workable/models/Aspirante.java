@@ -38,10 +38,17 @@ public class Aspirante {
   @Column(nullable = false , length = 255)
   private String ubicacion;
   
-  @Column(nullable = false)
+  @Column(nullable = false, unique = true)
   private Long telefono;
 
   private Date fecha_Nacimiento;
+
+  @Column(nullable = false, unique = true)
+  private Integer numero_Doc;
+
+  @Column(nullable = false, length = 50)
+  private String rol = "ASPIRANTE";
+  
 
   @Lob
   private byte[] foto;
@@ -52,7 +59,6 @@ public class Aspirante {
   @ManyToOne(optional = false)
   @JoinColumn(name = "tipoDocumento_id", nullable = false, foreignKey = @ForeignKey(name = "FK_tipo_documento_aspirante"))
   private TipDocumento tipDocumento;
-
   
   @ManyToOne(optional = false)
   @JoinColumn(name = "municipio_id", nullable = false, foreignKey = @ForeignKey(name = "FK_municipio_aspirante"))
