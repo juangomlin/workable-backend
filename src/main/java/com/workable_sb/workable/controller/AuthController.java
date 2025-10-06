@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.workable_sb.workable.dto.AspiranteDto;
 import com.workable_sb.workable.dto.AspiranteReadDto;
 import com.workable_sb.workable.dto.LoginDto;
+import com.workable_sb.workable.dto.LoginResponseDto;
 import com.workable_sb.workable.models.Aspirante;
 import com.workable_sb.workable.repositories.AspiranteRepository;
 import com.workable_sb.workable.repositories.GeneroRepository;
@@ -91,25 +92,24 @@ public ResponseEntity<?> login(@RequestBody LoginDto loginDto) {
     Aspirante aspirante = aspiranteRepository.findByCorreo(loginDto.getCorreo())
             .orElse(null);
 
-    System.out.println("Correo recibido: " + loginDto.getCorreo());
-    System.out.println("Contraseña recibida: " + loginDto.getClave());
-
-    if (aspirante != null) {
-        System.out.println("Hash en DB: " + aspirante.getClave());
-    }
-    System.out.println("Correo recibido: " + loginDto.getCorreo());
-    System.out.println("Contraseña recibida: " + loginDto.getClave());
-
     if (aspirante == null || !passwordEncoder.matches(loginDto.getClave(), aspirante.getClave())) {
         return ResponseEntity.status(401).body(Map.of("error", "Usuario o contraseña incorrectos"));
     }
-    if (aspirante != null) {
-    boolean coincide = passwordEncoder.matches(loginDto.getClave(), aspirante.getClave());
-    System.out.println("¿Coinciden la contraseña y el hash?: " + coincide);
-}
 
     String token = jwtUtil.generateToken(aspirante.getCorreo());
-    return ResponseEntity.ok().body(Map.of("token", token));
-    
+
+    LoginResponseDto responseDto = new LoginResponseDto();
+    responseDto.setToken(token);
+    responseDto.setId(aspirante.getAspiranteId());
+    responseDto.setNombre(aspirante.getNombre());
+    responseDto.setApellido(aspirante.getApellido());
+    responseDto.setCorreo(aspirante.getCorreo());
+    responseDto.setUbicacion(aspirante.getUbicacion());
+    responseDto.setTelefono(aspirante.getTelefono());
+    responseDto.setNombreTipDoc(aspirante.getTipDocumento().getNombre());
+    responseDto.setNombreMunicipio(aspirante.getMunicipio().getNombre());
+    responseDto.setNombreGenero(aspirante.getGenero().getNombre());
+
+    return ResponseEntity.ok(responseDto);
 }
 }
