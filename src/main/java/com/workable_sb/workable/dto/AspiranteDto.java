@@ -50,4 +50,8 @@ public class AspiranteDto {
   @NotNull(message = "El id de genero es obligatorio")
   private Short  genero_id;
 
+  public Object getFechaNacimiento() {
+    throw new UnsupportedOperationException("Unimplemented method 'getFechaNacimiento'");
+  }
+
 }

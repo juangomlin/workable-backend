@@ -45,8 +45,10 @@ public class Aspirante {
 
   @Column(nullable = false, unique = true)
   private Integer numero_Doc;
-  
 
+  @Column(nullable = false, length = 50)
+  private String rol = "ASPIRANTE";
+  
 
   @Lob
   private byte[] foto;
