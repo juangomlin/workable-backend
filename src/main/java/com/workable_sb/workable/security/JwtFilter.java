@@ -31,9 +31,13 @@ public class JwtFilter extends OncePerRequestFilter {
         String path = request.getRequestURI();
         String method = request.getMethod();
 
-        // ✅ Ignorar rutas públicas (sin token)
         if (path.startsWith("/api/auth") || 
-            (path.equals("/api/aspirante") && method.equals("POST"))) {
+            (path.equals("/api/aspirante") && method.equals("POST")) ||
+            (path.equals("/api/aspirante") && method.equals("GET")) ||
+            (path.equals("/api/empresa") && method.equals("POST")) ||
+            (path.equals("/api/reclutador") && method.equals("POST")) ||
+            (path.equals("/api/empresa") && method.equals("GET")) ||
+            path.startsWith("/api/empresa/")) {
             filterChain.doFilter(request, response);
             return;
         }

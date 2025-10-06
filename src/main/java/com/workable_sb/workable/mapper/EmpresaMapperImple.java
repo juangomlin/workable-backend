@@ -3,7 +3,6 @@ package com.workable_sb.workable.mapper;
 import org.springframework.stereotype.Component;
 
 import com.workable_sb.workable.dto.EmpresaDto;
-import com.workable_sb.workable.dto.EmpresaReadDto;
 import com.workable_sb.workable.models.Categoria;
 import com.workable_sb.workable.models.Empresa;
 import com.workable_sb.workable.models.Municipio;
@@ -26,6 +25,7 @@ public class EmpresaMapperImple implements EmpresaMapper{
   public Empresa consultEntity(EmpresaDto empresaDto) {
     Empresa empresa = new Empresa();
 
+    empresa.setNitId(empresaDto.getNit_id());
     empresa.setNombre(empresaDto.getNom());
     empresa.setUbicacion(empresaDto.getUbi());
     empresa.setDescripcion(empresaDto.getDesc());
@@ -42,8 +42,8 @@ public class EmpresaMapperImple implements EmpresaMapper{
   }
 
   @Override
-  public EmpresaReadDto consultReadDto(Empresa empresa) {
-    return new EmpresaReadDto(
+  public EmpresaDto consultReadDto(Empresa empresa) {
+    return new EmpresaDto(
       empresa.getNitId(),
       empresa.getNombre(),
       empresa.getUbicacion(),

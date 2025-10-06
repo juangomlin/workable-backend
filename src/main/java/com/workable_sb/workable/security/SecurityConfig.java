@@ -32,11 +32,14 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .authorizeHttpRequests(auth -> auth
-                // ✅ Endpoints públicos
+                // endpoints públicos
                 .requestMatchers("/api/auth/**").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/aspirante").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/aspirante/**").permitAll()
-                // ✅ Todo lo demás requiere autenticación
+                .requestMatchers(HttpMethod.POST, "/api/empresa").permitAll()
+                .requestMatchers(HttpMethod.POST, "/api/reclutador").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/empresa").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/empresa/**").permitAll()
                 .anyRequest().authenticated()
             )
             .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS));

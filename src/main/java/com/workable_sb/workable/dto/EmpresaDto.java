@@ -1,5 +1,7 @@
 package com.workable_sb.workable.dto;
 
+import java.time.LocalDate;
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -10,24 +12,25 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class EmpresaDto {
+  @NotNull
+  private Long nit_id;
   @NotBlank
   private String nom;
-
-  @NotNull
+  @NotBlank
   private String ubi;
-
   @NotBlank
   private String desc;
-
   @NotNull
   private Integer numTrab;
-
   @NotBlank
   private String correoCorp;
+  private float punt;
+  private LocalDate fechaCrea;
 
-  @NotNull(message = "la categoria es obligatoria")
+  @NotNull
   private Integer cat_id;
-
-  @NotNull(message = "el municipio es obligatorio")
+  private String nomCat;
+  @NotNull
   private Integer munici_id;
+  private String nomMunici;
 }
