@@ -1,7 +1,6 @@
 package com.workable_sb.workable.controller;
 
 import java.util.Map;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.workable_sb.workable.dto.AspiranteDto;
-import com.workable_sb.workable.dto.AspiranteReadDto;
 import com.workable_sb.workable.dto.LoginDto;
 import com.workable_sb.workable.dto.LoginResponseDto;
 import com.workable_sb.workable.models.Aspirante;
@@ -21,7 +19,6 @@ import com.workable_sb.workable.repositories.GeneroRepository;
 import com.workable_sb.workable.repositories.MunicipioRepository;
 import com.workable_sb.workable.repositories.TipDocumentoRepository;
 import com.workable_sb.workable.security.JwtUtil;
-import com.workable_sb.workable.service.AspiranteService;
 
 import jakarta.validation.Valid;
 
